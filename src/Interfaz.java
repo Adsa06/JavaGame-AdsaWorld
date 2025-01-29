@@ -1,9 +1,13 @@
 import javafx.application.Application;
-import javafx.scene.Scene;
-import javafx.scene.control.Label;
 import javafx.stage.Stage;
+import javafx.scene.Scene;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 
 public class Interfaz extends Application {
 
@@ -16,18 +20,17 @@ public class Interfaz extends Application {
     @Override
     public void start(Stage stage) {
         
-        // Creo un objeto Label y un objeto Button 
-        Label label = new Label("Bienvenido a Adsa World");
-        Button button = new Button("Click me");
-
-        // Agrego los objetos al VBox
-        VBox VBox = new VBox(10, label, button);
-        // Se puede hacer tambien asi:
-        // VBox.getChildren().addAll(label, button);
+        Pane root = new Pane();
+        String imagePath = getClass().getResource("Sprites/map.png").toExternalForm(); // Reemplaza con la ruta de tu imagen
+        Image image = new Image(imagePath); // Ruta de la imagen
+        ImageView spriteBackGround = new ImageView(image);
+        spriteBackGround.setFitWidth(768); // spriteBackGround.getFitWidth() * 2
+        spriteBackGround.setFitHeight(512); // spriteBackGround.getFitHeight() * 2
+        root.getChildren().add(spriteBackGround);  // Añadir el sprite a la escena
 
 
         // Establezco la escena
-        Scene scene = new Scene(VBox, 300, 250);
+        Scene scene = new Scene(root, 256, 256);
         stage.setScene(scene);
         stage.setTitle("Adsa World");
         stage.show();
