@@ -1,3 +1,5 @@
+import java.security.Key;
+
 import javafx.application.Application;
 import javafx.stage.Stage;
 import javafx.scene.Scene;
@@ -8,6 +10,7 @@ import javafx.scene.control.Label;
 
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyCode;
 
 public class Interfaz extends Application {
 
@@ -31,6 +34,11 @@ public class Interfaz extends Application {
 
         // Establezco la escena
         Scene scene = new Scene(root, 256, 256);
+
+        scene.setOnKeyPressed(event -> {
+            moveBackground(spriteBackGround, event.getCode().toString());
+        });
+
         stage.setScene(scene);
         stage.setTitle("Adsa World");
         stage.show();
@@ -43,6 +51,25 @@ public class Interfaz extends Application {
      */
     public static void iniciarInterfaz() {
         launch();
+    }
+
+    public static void moveBackground(ImageView spriteBackGround, String key) {
+        switch (key) {
+            case "A":
+                spriteBackGround.setX(spriteBackGround.getX() + 10);
+                break;
+            case "D":
+                spriteBackGround.setX(spriteBackGround.getX() - 10);
+                break;
+            case "W":
+                spriteBackGround.setY(spriteBackGround.getY() + 10);
+                break;
+            case "S":
+                spriteBackGround.setY(spriteBackGround.getY() - 10);
+                break;
+            default:
+                break;
+        }
     }
 
 }
