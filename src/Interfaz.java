@@ -1,5 +1,3 @@
-import java.security.Key;
-
 import javafx.application.Application;
 import javafx.stage.Stage;
 import javafx.scene.Scene;
@@ -23,18 +21,23 @@ public class Interfaz extends Application {
     @Override
     public void start(Stage stage) {
         
-        Pane root = new Pane();
-        String imagePath = getClass().getResource("Sprites/map.png").toExternalForm(); // Reemplaza con la ruta de tu imagen
-        Image image = new Image(imagePath); // Ruta de la imagen
+        Pane gamePane = new Pane();
+        
+        // Creo una imagen con los siguientes parametros: Ruta, ancho, alto, preserveRatio, smooth (Aunque piendo que esta bug las 2 ultimas)
+        // https://openjfx.io/javadoc/21/javafx.graphics/javafx/scene/image/Image.html
+        // https://openjfx.io/javadoc/21/javafx.graphics/javafx/scene/image/ImageView.html
+        Image image = new Image("file:Sprites/map.png", 480*4.5, 320*4.5, false, false);
         ImageView spriteBackGround = new ImageView(image);
-        spriteBackGround.setFitWidth(768); // spriteBackGround.getFitWidth() * 2
-        spriteBackGround.setFitHeight(512); // spriteBackGround.getFitHeight() * 2
-        root.getChildren().add(spriteBackGround);  // Añadir el sprite a la escena
+        gamePane.getChildren().add(spriteBackGround);  // Añadir el sprite a la escena
 
+        // Crear el sprite del jugador (se mantiene estático en pantalla)
+        Image jugadorImage = new Image("file:Sprites/player.png", 16*16, 32*16, false, false);
+        ImageView jugador = new ImageView(jugadorImage);
+        // Desactivar suavizado para mantener los píxeles nítidos
+        gamePane.getChildren().add(jugador);
 
         // Establezco la escena
-        Scene scene = new Scene(root, 256, 256);
-
+        Scene scene = new Scene(gamePane, 1280, 720);
         scene.setOnKeyPressed(event -> {
             moveBackground(spriteBackGround, event.getCode().toString());
         });
