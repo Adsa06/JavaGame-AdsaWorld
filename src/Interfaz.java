@@ -20,7 +20,7 @@ import javafx.scene.input.KeyCode;
 
 public class Interfaz extends Application {
 
-    private int velocidad = 5;
+    private int velocidad = 1;
 
     /*
      * Creo una variable Set, que es un conjunto de elementos no duplicados. 
@@ -32,9 +32,10 @@ public class Interfaz extends Application {
      * 
      * https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Set.html
      * https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/HashSet.html
+     * private final Set<String> keysPressed = new HashSet<>();
      */
-    private final Set<String> keysPressed = new HashSet<>();
-
+    private String keyPressed = "";
+    private int i = 0;
     /**
      * @param stage La etapa principal para esta aplicación, 
      * en la que se puede establecer la escena de la aplicación. 
@@ -43,6 +44,7 @@ public class Interfaz extends Application {
      */
     @Override
     public void start(Stage stage) {
+
         Pane gamePane = new Pane();
         Pane backgraundPane = new Pane();
         
@@ -53,16 +55,16 @@ public class Interfaz extends Application {
         ImageView spriteLimits = new ImageView(imageLimits);
         // De esta manera consigo contener en un solo panel todo el fondo para manejarlo mas facilmente (Aqui puedo incluir los npc)
         backgraundPane.getChildren().add(spriteLimits);
-        /*
-        Image imageBackGround = new Image("file:Sprites/Map.png", 480*4.5, 320*4.5, false, false);
+        
+        Image imageBackGround = new Image("file:Sprites/Casillas.png", 480*4.5, 320*4.5, false, false);
         ImageView spriteBackGround = new ImageView(imageBackGround);
         // De esta manera consigo contener en un solo panel todo el fondo para manejarlo mas facilmente (Aqui puedo incluir los npc)
-        backgraundPane.getChildren().add(spriteBackGround);*/
+        backgraundPane.getChildren().add(spriteBackGround);
         gamePane.getChildren().add(backgraundPane);
 
         Player jugador = new Player("file:Sprites/PlayerSheets.png", 16, 32, 4, 4, 4, gamePane);
         jugador.startAnimation();
-        jugador.setPosition(608, 296);
+        jugador.setPosition(724, 328);
 
         // Establezco la escena
         Scene scene = new Scene(gamePane, 1280, 720);
@@ -72,28 +74,33 @@ public class Interfaz extends Application {
 
         // Timeline que se ejecuta 60 veces por segundo (Esto me viene de lujo ya que puedo tener un flujo constante)
         Timeline timelineMovment = new Timeline(
-            new KeyFrame(Duration.seconds(1.0 / 60), event -> {
-                // Esto hace que se ejecute una vez cada 60 seg
-                moveBackground(backgraundPane, keysPressed.toString().charAt(1), jugador, pixelReader);
+            new KeyFrame(Duration.millis(5), event -> { // Esto hace que se ejecute cada 5 milisegundos
+                moveBackground(backgraundPane, keyPressed, jugador, pixelReader);
+                System.out.println(keyPressed);
+                this.i++;
             })
         );
         // Esto hace que se ejecute indefinidamente
-        timelineMovment.setCycleCount(Timeline.INDEFINITE);
+        timelineMovment.setCycleCount(72);
         
-        // Manejo de teclas, se ejecuta cuando se presiona una tecla y si es (W, A, S, D) empieza o termina la animación
-        scene.setOnKeyPressed(event -> {
-            if("WASD".contains(event.getCode().toString())) {
-                keysPressed.add(event.getCode().toString());
-                timelineMovment.play();
-            }
-        });
-        scene.setOnKeyReleased(event -> {
-            if("WASD".contains(event.getCode().toString())) {
-                keysPressed.remove(event.getCode().toString());
-                timelineMovment.pause();
-            }
-        });
-        
+        // Timeline que se ejecuta 60 veces por segundo (Esto me viene de lujo ya que puedo tener un flujo constante)
+        Timeline timelineInGame = new Timeline(
+            new KeyFrame(Duration.seconds(1.0 / 60), e -> { // Esto hace 
+                scene.setOnKeyPressed(event -> {
+                    if(event.getCode().toString().equals("Q")) System.out.println(i);
+                    if("WASD".contains(event.getCode().toString())) {
+                        if(i % 72 == 0) keyPressed = event.getCode().toString();
+                        timelineMovment.play();
+                    }
+                });
+                scene.setOnKeyReleased(event -> {
+                });
+            })
+        );
+        // Esto hace que se ejecute indefinidamente
+        timelineInGame.setCycleCount(Timeline.INDEFINITE);
+        timelineInGame.play();
+
         stage.setScene(scene);
         stage.setTitle("Adsa World");
         stage.show();
@@ -116,7 +123,7 @@ public class Interfaz extends Application {
      * @param key La tecla que se ha pulsado, puede ser 'A', 'D', 'W', 'S'.
      * @param spritePlayer El ImageView que representa al jugador.
      */
-    public void moveBackground(Pane backgraundPane, char key, Player jugador, PixelReader pixelReader) {
+    public void moveBackground(Pane backgraundPane, String key, Player jugador, PixelReader pixelReader) {
         
         // Obtener el color del píxel en la nueva posición
         Color pixelColor = pixelReader.getColor(
@@ -128,33 +135,21 @@ public class Interfaz extends Application {
             System.out.println("Estas tocando los limites");
         }
         switch (key) {
-            case 'A':
-                if (jugador.getSheetIndex() != 3) {
-                    jugador.actualizarSheet(3);
-                } else {
-                    if (!pixelColor.equals(Color.web("#FF00FF"))) backgraundPane.setTranslateX(backgraundPane.getTranslateX() + velocidad);
-                }
+            case "A":
+                if (jugador.getSheetIndex() != 3) jugador.actualizarSheet(3);
+                if (!pixelColor.equals(Color.web("#FF00FF"))) backgraundPane.setTranslateX(backgraundPane.getTranslateX() + velocidad);
                 break;
-            case 'D':
-                if (jugador.getSheetIndex() != 1) {
-                    jugador.actualizarSheet(1);
-                } else {
+            case "D":
+                if (jugador.getSheetIndex() != 1) jugador.actualizarSheet(1);
                     if (!pixelColor.equals(Color.web("#FF00FF"))) backgraundPane.setTranslateX(backgraundPane.getTranslateX() - velocidad);
-                }
                 break;
-            case 'W':
-                if (jugador.getSheetIndex() != 2) {
-                    jugador.actualizarSheet(2);
-                } else {
+            case "W":
+                if (jugador.getSheetIndex() != 2) jugador.actualizarSheet(2);
                     if (!pixelColor.equals(Color.web("#FF00FF"))) backgraundPane.setTranslateY(backgraundPane.getTranslateY() + velocidad);
-                }
                 break;
-            case 'S':
-                if (jugador.getSheetIndex() != 0) {
-                    jugador.actualizarSheet(0);
-                } else {
+            case "S":
+                if (jugador.getSheetIndex() != 0) jugador.actualizarSheet(0);
                     if (!pixelColor.equals(Color.web("#FF00FF"))) backgraundPane.setTranslateY(backgraundPane.getTranslateY() - velocidad);
-                }
                 break;
             default:
                 break;
