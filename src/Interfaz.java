@@ -47,8 +47,13 @@ public class Interfaz extends Application {
         // Creo una imagen con los siguientes parametros: Ruta, ancho, alto, preserveRatio, smooth (Aunque piendo que esta bug las 2 ultimas)
         // https://openjfx.io/javadoc/21/javafx.graphics/javafx/scene/image/Image.html
         // https://openjfx.io/javadoc/21/javafx.graphics/javafx/scene/image/ImageView.html
-        Image image = new Image("file:Sprites/map.png", 480*4.5, 320*4.5, false, false);
-        ImageView spriteBackGround = new ImageView(image);
+        Image imageLimits = new Image("file:Sprites/LimitsMap.png", 480*4.5, 320*4.5, false, false);
+        ImageView spriteLimits = new ImageView(imageLimits);
+        // De esta manera consigo contener en un solo panel todo el fondo para manejarlo mas facilmente (Aqui puedo incluir los npc)
+        backgraundPane.getChildren().add(spriteLimits);
+         
+        Image imageBackGround = new Image("file:Sprites/Map.png", 480*4.5, 320*4.5, false, false);
+        ImageView spriteBackGround = new ImageView(imageBackGround);
         // De esta manera consigo contener en un solo panel todo el fondo para manejarlo mas facilmente (Aqui puedo incluir los npc)
         backgraundPane.getChildren().add(spriteBackGround);
         gamePane.getChildren().add(backgraundPane);
