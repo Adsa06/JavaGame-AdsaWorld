@@ -20,6 +20,17 @@ public class Interfaz extends Application {
 
     private int velocidad = 5;
 
+    /*
+     * Creo una variable Set, que es un conjunto de elementos no duplicados. 
+     * Esto me ayuda a no añadirle la misma letra si mantengo presionado.
+     * 
+     * Y lo guardo en un HashSet. Que es una implementación de la interfaz Set 
+     * HashSet almacena elementos en una tabla hash, lo que permite búsquedas rápidas.
+     * El operador <> (diamante) se usa para inferir el tipo genérico (String en este caso), evitando repetirlo.
+     * 
+     * https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Set.html
+     * https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/HashSet.html
+     */
     private final Set<String> keysPressed = new HashSet<>();
 
     /**
