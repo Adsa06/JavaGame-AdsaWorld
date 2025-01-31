@@ -22,6 +22,7 @@ public class Interfaz extends Application {
 
     private int velocidad = 1;
     private String keyPressed = "";
+    private String NewkeyPressed = "";
     private int i = 0;
     private boolean isWalking = false;
 
@@ -76,8 +77,9 @@ public class Interfaz extends Application {
         // Timeline que se ejecuta 60 veces por segundo (Esto me viene de lujo ya que puedo tener un flujo constante)
         Timeline timelineMovment = new Timeline(
             new KeyFrame(Duration.millis(5), event -> { // Esto hace que se ejecute 30 veces por segundo
+                if(i % 72 == 0) NewkeyPressed = keyPressed;
                 if(isWalking || i % 72 != 0) {
-                    moveBackground(backgraundPane, keyPressed, jugador, pixelReader);
+                    moveBackground(backgraundPane, NewkeyPressed, jugador, pixelReader);
                     System.out.println(keyPressed);
                     this.i++;
                 }
