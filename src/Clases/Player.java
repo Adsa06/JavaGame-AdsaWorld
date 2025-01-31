@@ -68,4 +68,8 @@ public class Player {
         spriteView.setX(x);
         spriteView.setY(y);
     }
+
+    public String getPosition() {
+        return ("X: " + spriteView.getX() + ", Y: " + spriteView.getY());
+    }
 }
