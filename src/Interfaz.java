@@ -23,7 +23,7 @@ public class Interfaz extends Application {
     private int velocidad = 1;
     private String keyPressed = "";
     private String NewkeyPressed = "";
-    private int i = 0;
+    private int contadorMovimiento = 0;
     private boolean isWalking = false;
 
     /*
@@ -76,12 +76,12 @@ public class Interfaz extends Application {
 
         // Timeline que se ejecuta 60 veces por segundo (Esto me viene de lujo ya que puedo tener un flujo constante)
         Timeline timelineMovment = new Timeline(
-            new KeyFrame(Duration.millis(5), event -> { // Esto hace que se ejecute 30 veces por segundo
-                if(i % 72 == 0) NewkeyPressed = keyPressed;
-                if(isWalking || i % 72 != 0) {
+            new KeyFrame(Duration.millis(5), event -> { // Esto hace que se ejecute cada 5ms
+                if(contadorMovimiento % 72 == 0) NewkeyPressed = keyPressed;
+                if(isWalking || contadorMovimiento % 72 != 0) {
                     moveBackground(backgraundPane, NewkeyPressed, jugador, pixelReader);
                     System.out.println(keyPressed);
-                    this.i++;
+                    this.contadorMovimiento++;
                 }
             })
         );
@@ -90,7 +90,6 @@ public class Interfaz extends Application {
         timelineMovment.play();
 
         scene.setOnKeyPressed(event -> {
-            if(event.getCode().toString().equals("Q")) System.out.println(i);
             if("WASD".contains(event.getCode().toString())) {
                 keyPressed = event.getCode().toString();
                 isWalking = true;
