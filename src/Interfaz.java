@@ -8,8 +8,8 @@ import javafx.application.Application;
 import javafx.stage.Stage;
 import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
-import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
+import javafx.scene.layout.VBox;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.util.Duration;
@@ -58,7 +58,7 @@ public class Interfaz extends Application {
         // De esta manera consigo contener en un solo panel todo el fondo para manejarlo mas facilmente (Aqui puedo incluir los npc)
         backgraundPane.getChildren().add(spriteLimits);
 
-        Image imageBackGround = new Image("file:Sprites/Casillas.png", 480*4.5, 320*4.5, false, false);
+        Image imageBackGround = new Image("file:Sprites/Map.png", 480*4.5, 320*4.5, false, false);
         ImageView spriteBackGround = new ImageView(imageBackGround);
         // De esta manera consigo contener en un solo panel todo el fondo para manejarlo mas facilmente (Aqui puedo incluir los npc)
         backgraundPane.getChildren().add(spriteBackGround);
@@ -121,33 +121,43 @@ public class Interfaz extends Application {
      * @param key La tecla que se ha pulsado, puede ser 'A', 'D', 'W', 'S'.
      * @param spritePlayer El ImageView que representa al jugador.
      */
-    public void moveBackground(Pane backgraundPane, String key, Player jugador, PixelReader pixelReader) {
+    public void moveBackground(Pane backgraundPane, String key, Player jugador, PixelReader pixelReader) { // 36 pixeles
 
         // Obtener el color del píxel en la nueva posición
-        Color pixelColor = pixelReader.getColor(
-            (-1 * ((int) backgraundPane.getTranslateX())) + 642,
-            (-1 * ((int) backgraundPane.getTranslateY())) + 367
-        );
-        // Si el color es negro (pared), no se mueve
-        if (pixelColor.equals(Color.web("#FF00FF"))) { //390.0 115.0 -1270.0 -820.0
-            System.out.println("Estas tocando los limites");
-        }
+        Color pixelColor;
+
         switch (key) {
             case "A":
+                pixelColor = pixelReader.getColor(
+                    (-1 * ((int) backgraundPane.getTranslateX())) + 720,
+                    (-1 * ((int) backgraundPane.getTranslateY())) + 396
+                );
                 if (jugador.getSheetIndex() != 3) jugador.actualizarSheet(3);
                 if (!pixelColor.equals(Color.web("#FF00FF"))) backgraundPane.setTranslateX(backgraundPane.getTranslateX() + velocidad);
                 break;
             case "D":
+                pixelColor = pixelReader.getColor(
+                    (-1 * ((int) backgraundPane.getTranslateX())) + 792,
+                    (-1 * ((int) backgraundPane.getTranslateY())) + 396
+                );
                 if (jugador.getSheetIndex() != 1) jugador.actualizarSheet(1);
-                    if (!pixelColor.equals(Color.web("#FF00FF"))) backgraundPane.setTranslateX(backgraundPane.getTranslateX() - velocidad);
+                if (!pixelColor.equals(Color.web("#FF00FF"))) backgraundPane.setTranslateX(backgraundPane.getTranslateX() - velocidad);
                 break;
             case "W":
+                pixelColor = pixelReader.getColor(
+                    (-1 * ((int) backgraundPane.getTranslateX())) + 756,
+                    (-1 * ((int) backgraundPane.getTranslateY())) + 360
+                );
                 if (jugador.getSheetIndex() != 2) jugador.actualizarSheet(2);
-                    if (!pixelColor.equals(Color.web("#FF00FF"))) backgraundPane.setTranslateY(backgraundPane.getTranslateY() + velocidad);
+                if (!pixelColor.equals(Color.web("#FF00FF"))) backgraundPane.setTranslateY(backgraundPane.getTranslateY() + velocidad);
                 break;
             case "S":
+                pixelColor = pixelReader.getColor(
+                    (-1 * ((int) backgraundPane.getTranslateX())) + 756,
+                    (-1 * ((int) backgraundPane.getTranslateY())) + 432
+                );
                 if (jugador.getSheetIndex() != 0) jugador.actualizarSheet(0);
-                    if (!pixelColor.equals(Color.web("#FF00FF"))) backgraundPane.setTranslateY(backgraundPane.getTranslateY() - velocidad);
+                if (!pixelColor.equals(Color.web("#FF00FF"))) backgraundPane.setTranslateY(backgraundPane.getTranslateY() - velocidad);
                 break;
             default:
                 break;
