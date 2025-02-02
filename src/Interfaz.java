@@ -123,8 +123,8 @@ public class Interfaz extends Application {
      */
     public void moveBackground(Pane backgroundPane, String key, Player jugador, PixelReader pixelReader) { // 36 pixeles
 
-        final int PLAYER_CENTER_X = 756;
-        final int PLAYER_CENTER_Y = 396;
+        final int PLAYER_CENTER_X = 760;
+        final int PLAYER_CENTER_Y = 400;
         final int OFFSET = 36;
         final Color COLOR_COLISION = Color.web("#FF00FF");
         
