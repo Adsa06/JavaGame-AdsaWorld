@@ -48,7 +48,7 @@ public class Interfaz extends Application {
     public void start(Stage stage) {
 
         Pane gamePane = new Pane();
-        Pane backgraundPane = new Pane();
+        Pane backgroundPane = new Pane();
 
         // Creo una imagen con los siguientes parametros: Ruta, ancho, alto, preserveRatio, smooth (Aunque piendo que esta bug las 2 ultimas)
         // https://openjfx.io/javadoc/21/javafx.graphics/javafx/scene/image/Image.html
@@ -56,13 +56,13 @@ public class Interfaz extends Application {
         Image imageLimits = new Image("file:Sprites/LimitsMap.png", 480*4.5, 320*4.5, false, false);
         ImageView spriteLimits = new ImageView(imageLimits);
         // De esta manera consigo contener en un solo panel todo el fondo para manejarlo mas facilmente (Aqui puedo incluir los npc)
-        backgraundPane.getChildren().add(spriteLimits);
+        backgroundPane.getChildren().add(spriteLimits);
 
         Image imageBackGround = new Image("file:Sprites/Map.png", 480*4.5, 320*4.5, false, false);
         ImageView spriteBackGround = new ImageView(imageBackGround);
         // De esta manera consigo contener en un solo panel todo el fondo para manejarlo mas facilmente (Aqui puedo incluir los npc)
-        backgraundPane.getChildren().add(spriteBackGround);
-        gamePane.getChildren().add(backgraundPane);
+        backgroundPane.getChildren().add(spriteBackGround);
+        gamePane.getChildren().add(backgroundPane);
 
         Player jugador = new Player("file:Sprites/PlayerSheets.png", 16, 32, 4, 4, 4, gamePane);
         jugador.startAnimation();
@@ -79,7 +79,7 @@ public class Interfaz extends Application {
             new KeyFrame(Duration.millis(5), event -> { // Esto hace que se ejecute cada 5ms
                 if(contadorMovimiento % 72 == 0) NewkeyPressed = keyPressed;
                 if(isWalking || contadorMovimiento % 72 != 0) {
-                    moveBackground(backgraundPane, NewkeyPressed, jugador, pixelReader);
+                    moveBackground(backgroundPane, NewkeyPressed, jugador, pixelReader);
                     System.out.println(keyPressed);
                     this.contadorMovimiento++;
                 }
@@ -121,43 +121,52 @@ public class Interfaz extends Application {
      * @param key La tecla que se ha pulsado, puede ser 'A', 'D', 'W', 'S'.
      * @param spritePlayer El ImageView que representa al jugador.
      */
-    public void moveBackground(Pane backgraundPane, String key, Player jugador, PixelReader pixelReader) { // 36 pixeles
+    public void moveBackground(Pane backgroundPane, String key, Player jugador, PixelReader pixelReader) { // 36 pixeles
+
+        final int PLAYER_CENTER_X = 756;
+        final int PLAYER_CENTER_Y = 396;
+        final int OFFSET = 36;
+        final Color COLOR_COLISION = Color.web("#FF00FF");
+        
+        double posicionX = backgroundPane.getTranslateX();
+        double posicionY = backgroundPane.getTranslateY();
 
         // Obtener el color del píxel en la nueva posición
         Color pixelColor;
+        
 
         switch (key) {
             case "A":
                 pixelColor = pixelReader.getColor(
-                    (-1 * ((int) backgraundPane.getTranslateX())) + 720,
-                    (-1 * ((int) backgraundPane.getTranslateY())) + 396
+                    (-1 * (int) posicionX) + PLAYER_CENTER_X - OFFSET,
+                    (-1 * (int) posicionY) + PLAYER_CENTER_Y
                 );
                 if (jugador.getSheetIndex() != 3) jugador.actualizarSheet(3);
-                if (!pixelColor.equals(Color.web("#FF00FF"))) backgraundPane.setTranslateX(backgraundPane.getTranslateX() + velocidad);
+                if (!pixelColor.equals(COLOR_COLISION)) backgroundPane.setTranslateX(posicionX + velocidad);
                 break;
             case "D":
                 pixelColor = pixelReader.getColor(
-                    (-1 * ((int) backgraundPane.getTranslateX())) + 792,
-                    (-1 * ((int) backgraundPane.getTranslateY())) + 396
+                    (-1 * (int) posicionX) + PLAYER_CENTER_X + OFFSET,
+                    (-1 * (int) posicionY) + PLAYER_CENTER_Y
                 );
                 if (jugador.getSheetIndex() != 1) jugador.actualizarSheet(1);
-                if (!pixelColor.equals(Color.web("#FF00FF"))) backgraundPane.setTranslateX(backgraundPane.getTranslateX() - velocidad);
+                if (!pixelColor.equals(COLOR_COLISION)) backgroundPane.setTranslateX(posicionX - velocidad);
                 break;
             case "W":
                 pixelColor = pixelReader.getColor(
-                    (-1 * ((int) backgraundPane.getTranslateX())) + 756,
-                    (-1 * ((int) backgraundPane.getTranslateY())) + 360
+                    (-1 * (int) posicionX) + PLAYER_CENTER_X,
+                    (-1 * (int) posicionY) + PLAYER_CENTER_Y - OFFSET
                 );
                 if (jugador.getSheetIndex() != 2) jugador.actualizarSheet(2);
-                if (!pixelColor.equals(Color.web("#FF00FF"))) backgraundPane.setTranslateY(backgraundPane.getTranslateY() + velocidad);
+                if (!pixelColor.equals(COLOR_COLISION)) backgroundPane.setTranslateY(posicionY + velocidad);
                 break;
             case "S":
                 pixelColor = pixelReader.getColor(
-                    (-1 * ((int) backgraundPane.getTranslateX())) + 756,
-                    (-1 * ((int) backgraundPane.getTranslateY())) + 432
+                    (-1 * (int) posicionX) + PLAYER_CENTER_X,
+                    (-1 * (int) posicionY) + PLAYER_CENTER_Y + OFFSET
                 );
                 if (jugador.getSheetIndex() != 0) jugador.actualizarSheet(0);
-                if (!pixelColor.equals(Color.web("#FF00FF"))) backgraundPane.setTranslateY(backgraundPane.getTranslateY() - velocidad);
+                if (!pixelColor.equals(COLOR_COLISION)) backgroundPane.setTranslateY(posicionY - velocidad);
                 break;
             default:
                 break;
