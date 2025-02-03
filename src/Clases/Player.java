@@ -16,6 +16,8 @@ public class Player {
     private int frameHeight;
     private Timeline animation;
 
+
+    // Metodo constructor, Ruta de la imagen, anchura y altura de la imagen, cuantos frames hay, cuantos sheets hay, la escala y el panel
     public Player(String imagePath, int frameWidth, int frameHeight, int frameCount, int sheetCount, int scale, Pane gamePane) {
         this.frameWidth = frameWidth * scale;
         this.frameHeight = frameHeight * scale;
@@ -36,6 +38,28 @@ public class Player {
         animation.setCycleCount(Timeline.INDEFINITE);
     }
 
+    // Getters y Setters
+    public void setPosition(double x, double y) {
+        spriteView.setX(x);
+        spriteView.setY(y);
+    }
+
+    public ImageView getSpriteView() {
+        return spriteView;
+    }
+
+    public int getSheetIndex() {
+        return sheetIndex;
+    }
+
+    public double getPositionX() {
+        return spriteView.getX();
+    }
+
+    public double getPositionY() {
+        return spriteView.getX();
+    }
+
     // Método para actualizar la animación
     private void updateFrame() {
         currentFrame = (currentFrame + 1) % frameCount;
@@ -51,25 +75,9 @@ public class Player {
         animation.stop();
     }
 
-    public ImageView getSpriteView() {
-        return spriteView;
-    }
-
-    public int getSheetIndex() {
-        return sheetIndex;
-    }
-
     public void actualizarSheet(int sheetIndex) {
         this.sheetIndex = sheetIndex;
         spriteView.setViewport(new Rectangle2D(currentFrame * frameWidth, sheetIndex * frameHeight, frameWidth, frameHeight));
     }
 
-    public void setPosition(double x, double y) {
-        spriteView.setX(x);
-        spriteView.setY(y);
-    }
-
-    public String getPosition() {
-        return ("X: " + spriteView.getX() + ", Y: " + spriteView.getY());
-    }
 }
