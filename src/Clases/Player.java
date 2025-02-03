@@ -1,6 +1,6 @@
 /*
  * Autor: Aitor de Santos Amoros
- * Fecha: 31/01/2025
+ * Fecha de creacion: 31/01/2025
  * Descripcion: Clase Player, para inicializar el personaje y poder controlarlo
  */
 

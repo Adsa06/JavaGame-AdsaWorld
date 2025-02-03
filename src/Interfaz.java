@@ -1,10 +1,16 @@
+/*
+ * Autor: Aitor de Santos Amoros
+ * Fecha de creacion: 29/01/2025
+ * Descripcion: Es el archivo principal el que inicia el videojuego
+ */
+
 import java.util.HashSet;
 import java.util.Set;
 
 import Clases.Player;
+import javafx.application.Application;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
-import javafx.application.Application;
 import javafx.stage.Stage;
 import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
