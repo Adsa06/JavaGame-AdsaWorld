@@ -103,6 +103,14 @@ public class Interfaz extends Application {
             isWalking = false;
         });
 
+        //https://openjfx.io/javadoc/21/javafx.graphics/javafx/stage/Stage.html
+        /* El stage muestra la scena que quieras
+        stage.setMaxWidth(1280);
+        stage.setMinWidth(1280);
+        stage.setMaxHeight(720);
+        stage.setMinHeight(720);
+        stage.close(); */ 
+
         stage.setScene(scene);
         stage.setTitle("Adsa World");
         stage.show();
