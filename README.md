@@ -36,27 +36,28 @@ Archivos no subidos a GitHub
 
 - **Java Development Kit (JDK)** versión 21 o superior.
 - Entorno de desarrollo integrado (IDE) recomendado: Visual Studio Code.
+- Librerias requeridas
+    - JavaFX 21.0.6
 
 ## Instrucciones de Ejecución
 
 1. Abre el proyecto en **Visual Studio Code**.
 2. Asegúrate de que JDK 21 esté correctamente configurado.
-3. Ve a la carpeta `src/` y selecciona el archivo que deseas ejecutar (`TresEnRayav1.java` o `TresEnRayav2.java`).
+2. Asegúrate de que JavaFX esté correctamente configurado.
+3. Ve a la carpeta `src/` y selecciona el archivo `App.java`.
 4. Compila y ejecuta el programa:
 
 
 ## Funcionalidades Principales
 
-- **Tablero dinámico**: Se muestra un tablero actualizado después de cada turno.
-- **Validaciones**: Impide movimientos inválidos (casillas ocupadas o fuera de rango).
-- **Condiciones de victoria**: Verifica automáticamente si un jugador ha ganado.
-- **Empate**: Detecta si el tablero se llena sin un ganador.
-- **Colores**: Diferencia los símbolos `X` y `O` mediante colores (rojo y azul).
+- **1**: 2.
+- **3**: 4.
 
 ## Notas Adicionales
 
-Este proyecto está diseñado para que los estudiantes aprendan:
+Este proyecto está diseñado para que los estudiantes apreaprenderndan:
 
 - **Modularización**: Descomposición del programa en métodos.
 - **Documentación**: Creación de un análisis técnico del software.
 - **Uso de herramientas modernas**: Familiarización con Visual Studio Code y JDK 21.
+- **Uso de librerias**: Primer contacto con librerias.
