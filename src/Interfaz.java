@@ -89,6 +89,10 @@ public class Interfaz extends Application {
         timelineMovment.setCycleCount(Timeline.INDEFINITE);
         timelineMovment.play();
 
+        // https://openjfx.io/javadoc/21/javafx.graphics/javafx/scene/Scene.html
+        // Define una función que se llamará cuando algún Nodo (algun panel) de esta Escena tenga foco de entrada y se haya presionado una tecla. 
+        // La función se llama solo si el evento aún no se ha consumido durante su fase de captura o difusión.
+        // Es decir que no acaba hasta que no termina la accion (Tambien cuenta cuando se llama a una funcion)
         scene.setOnKeyPressed(event -> {
             if("WASD".contains(event.getCode().toString())) {
                 keyPressed = event.getCode().toString();
