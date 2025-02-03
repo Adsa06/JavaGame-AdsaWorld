@@ -7,7 +7,7 @@
 import java.util.HashSet;
 import java.util.Set;
 
-import Clases.Player;
+import Clases.EntityScene.Player;
 import javafx.application.Application;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;

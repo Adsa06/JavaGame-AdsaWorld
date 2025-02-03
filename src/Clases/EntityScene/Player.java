@@ -4,7 +4,7 @@
  * Descripcion: Clase Player, para inicializar el personaje y poder controlarlo
  */
 
-package Clases;
+package Clases.EntityScene;
 
 import javafx.geometry.Rectangle2D;
 import javafx.scene.image.Image;
@@ -14,7 +14,7 @@ import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.util.Duration;
 
-public class Player {
+public class Player extends Entity {
     private ImageView spriteView;
     private int sheetIndex = 0;
     private int currentFrame = 0;
