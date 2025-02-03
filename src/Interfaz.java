@@ -1,10 +1,16 @@
+/*
+ * Autor: Aitor de Santos Amoros
+ * Fecha de creacion: 29/01/2025
+ * Descripcion: Es el archivo principal el que inicia el videojuego
+ */
+
 import java.util.HashSet;
 import java.util.Set;
 
 import Clases.Player;
+import javafx.application.Application;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
-import javafx.application.Application;
 import javafx.stage.Stage;
 import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
@@ -89,6 +95,10 @@ public class Interfaz extends Application {
         timelineMovment.setCycleCount(Timeline.INDEFINITE);
         timelineMovment.play();
 
+        // https://openjfx.io/javadoc/21/javafx.graphics/javafx/scene/Scene.html
+        // Define una función que se llamará cuando algún Nodo (algun panel) de esta Escena tenga foco de entrada y se haya presionado una tecla. 
+        // La función se llama solo si el evento aún no se ha consumido durante su fase de captura o difusión.
+        // Es decir que no acaba hasta que no termina la accion (Tambien cuenta cuando se llama a una funcion)
         scene.setOnKeyPressed(event -> {
             if("WASD".contains(event.getCode().toString())) {
                 keyPressed = event.getCode().toString();
@@ -98,6 +108,14 @@ public class Interfaz extends Application {
         scene.setOnKeyReleased(event -> {
             isWalking = false;
         });
+
+        //https://openjfx.io/javadoc/21/javafx.graphics/javafx/stage/Stage.html
+        /* El stage muestra la scena que quieras
+        stage.setMaxWidth(1280);
+        stage.setMinWidth(1280);
+        stage.setMaxHeight(720);
+        stage.setMinHeight(720);
+        stage.close(); */ 
 
         stage.setScene(scene);
         stage.setTitle("Adsa World");
