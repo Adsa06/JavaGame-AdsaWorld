@@ -1,7 +1,7 @@
 # Juego de Snake en Consola
 
 ## Información General
-[Enlace al repositorio de git](https://github.com/Adsa06/javagame-adsaworld)
+[Enlace al repositorio de git](https://github.com/Adsa06/JavaGame-AdsaWorld)   
 [Enlace al documento de Especificaciones y Analisis](https://1drv.ms/w/c/c48b354083f5dd20/EWm3SnBJsz1MjxlrfQZ7IVQB_qOpL4Cxqa7QVm7hX2AQqg?e=kDD7qM)
 
 | Detalle              | Información       |
@@ -44,10 +44,14 @@ javagame-adsaworld/
 
 ### Ejecución del Juego
 
-1. Abre dos terminales y dirigete a la raiz del proyecto `javagame-adsaworld/`.
+1. Abre una terminal y dirigete a la raiz del proyecto `javagame-adsaworld/`.
 2. En la primera terminal, ejecuta la clase principal:
    ```bash
    mvn javafx:run
+   ```
+   O el siguiente si quieres compilar y ejecutar al mismo tiempo:
+   ```bash
+   mvn clean javafx:run
    ```
 
 ### Creacion del javadoc con maven
