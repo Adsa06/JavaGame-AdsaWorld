@@ -19,9 +19,16 @@ public class MainView {
         StackPane root = new StackPane();
         root.getChildren().addAll(btnIncrementar, lblContador);
         StackPane.setAlignment(lblContador, javafx.geometry.Pos.TOP_CENTER);
+        StackPane.setAlignment(btnIncrementar, javafx.geometry.Pos.CENTER);
 
         Scene scene = new Scene(root, 300, 250);
-        primaryStage.setTitle("Ejemplo MVC");
+
+        // Cargar archivo CSS
+        String css = getClass().getResource("/estilos/estilo.css").toExternalForm();
+        
+        scene.getStylesheets().add(css);
+
+        primaryStage.setTitle("Ejemplo MVC con CSS");
         primaryStage.setScene(scene);
         primaryStage.show();
     }
