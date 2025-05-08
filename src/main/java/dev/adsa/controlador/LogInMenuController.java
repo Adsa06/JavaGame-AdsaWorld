@@ -1,5 +1,6 @@
 package dev.adsa.controlador;
 
+import dev.adsa.bbdd.GestorDB;
 import dev.adsa.utils.GestorPantallas;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -32,8 +33,16 @@ public class LogInMenuController {
         String username = usernameField.getText();
         String password = passwordField.getText();
         // Ahora puedes trabajar con username y password
-        System.out.println("Usuario: " + username + ", Contraseña: " + password);
-        GestorPantallas.mostrarMenuPrincipal();
+        if(username.isEmpty() || password.isEmpty())
+            System.out.println("Por favor, completa todos los campos.");
+
+        if(username.length() > 50 || password.length() > 255)
+            System.out.println("El nombre de usuario o la contraseña son demasiado largos.");
+
+        if(GestorDB.login(username, password))
+            GestorPantallas.mostrarMenuPrincipal();
+        else
+            System.out.println("Usuario o contraseña incorrectos.");
     }
 
     /**

@@ -10,8 +10,8 @@ import org.mindrot.jbcrypt.BCrypt;
 /**
  * Clase para la gestion de la base de datos
  */
-public class GestionDB {
-    public boolean registrarUsuario(String username, String password) {
+public class GestorDB {
+    public static boolean registrarUsuario(String username, String password) {
         boolean existe = false;
         String hashedPassword = BCrypt.hashpw(password, BCrypt.gensalt());
 
@@ -30,7 +30,7 @@ public class GestionDB {
         return existe;
     }
 
-    public boolean login(String username, String password) {
+    public static boolean login(String username, String password) {
         boolean existe = false;
         String sqlSelectContra = "SELECT password FROM usuarios WHERE username = ?";
         try (Connection conn = ConexionDB.getConnection();
