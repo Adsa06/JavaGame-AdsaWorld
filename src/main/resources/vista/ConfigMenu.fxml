@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+
+<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" stylesheets="@../estilos/estilo.css" xmlns="http://javafx.com/javafx/21.0.7" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dev.adsa.controlador.ConfigMenuController">
+   <children>
+      <Label text="%label.config.title" translateY="-20.0" />
+      <Label text="%label.config.language" translateY="-10.0" />
+      <HBox alignment="CENTER" prefHeight="0.0" prefWidth="600.0">
+         <children>
+            <Button mnemonicParsing="false" onAction="#cambiarIdiomaEs" text="%button.config.language.es" translateX="-3.0" />
+            <Button mnemonicParsing="false" onAction="#cambiarIdiomaEn" text="%button.config.language.en" translateX="3.0" />
+         </children>
+      </HBox>
+      <Button mnemonicParsing="false" onAction="#salir" text="%button.config.exitsave" translateY="30.0" />
+   </children>
+</VBox>

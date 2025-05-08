@@ -1,6 +1,7 @@
 package dev.adsa.utils;
 
 import java.io.IOException;
+import java.util.ResourceBundle;
 
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -19,10 +20,11 @@ public class GestorPantallas {
      * Inicializa la escena principal y la muestra en la pantalla.
      * Crea una escena vacía con un StackPane como contenedor principal y
      * la asigna al Stage principal. Luego la muestra en la pantalla.
+     * 
      * @param primaryStage El Stage principal de la aplicación.
      */
     public static void inicializar(Stage primaryStage) {
-    
+
         scene = new Scene(new StackPane(), 300, 250);
         primaryStage.setTitle("Adsa World");
         primaryStage.setScene(scene);
@@ -32,9 +34,10 @@ public class GestorPantallas {
 
     public static void mostrarMenuPrincipal() {
         try {
-            Parent root = FXMLLoader.load(GestorPantallas.class.getResource("/vista/MainMenu.fxml"));
+            ResourceBundle bundle = ResourceBundle.getBundle("i18n.messages", GestorIdioma.getLocaleActual());
+            FXMLLoader loader = new FXMLLoader(GestorPantallas.class.getResource("/vista/MainMenu.fxml"), bundle);
+            Parent root = loader.load();
             scene.setRoot(root);
-            System.out.println("Menu Principal cargado correctamente.");
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -42,7 +45,9 @@ public class GestorPantallas {
 
     public static void mostrarConfiguracion() {
         try {
-            Parent root = FXMLLoader.load(GestorPantallas.class.getResource("/vista/Configuracion.fxml"));
+            ResourceBundle bundle = ResourceBundle.getBundle("i18n.messages", GestorIdioma.getLocaleActual());
+            FXMLLoader loader = new FXMLLoader(GestorPantallas.class.getResource("/vista/ConfigMenu.fxml"), bundle);
+            Parent root = loader.load();
             scene.setRoot(root);
         } catch (IOException e) {
             e.printStackTrace();
@@ -50,10 +55,9 @@ public class GestorPantallas {
     }
 
     // public static void mostrarGameplay(String ciudad) {
-    //     // Crear por código el nodo raíz del gameplay
-    //     Pane juego = new JuegoCiudad(ciudad); // Clase personalizada
-    //     scene.setRoot(juego);
+    // // Crear por código el nodo raíz del gameplay
+    // Pane juego = new JuegoCiudad(ciudad); // Clase personalizada
+    // scene.setRoot(juego);
     // }
 
 }
-

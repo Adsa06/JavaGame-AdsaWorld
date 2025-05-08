@@ -1,16 +1,59 @@
+/* Fondo general */
+.root {
+    -fx-background-color: linear-gradient(from 0% 0% to 0% 100%, #16181a, #232526);
+}
+
+/* Botones */
 .button {
-    -fx-background-color: #4CAF50;
+    -fx-background-color: linear-gradient(from 0% 0% to 100% 0%, #43cea2 0%, #185a9d 100%);
     -fx-text-fill: white;
-    -fx-font-size: 14px;
-    -fx-padding: 8 16;
-    -fx-background-radius: 8;
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-padding: 10 24;
+    -fx-background-radius: 20;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, #00000055, 4, 0.2, 0, 2);
+    -fx-border-color: #ffffff33;
+    -fx-border-width: 1.5;
+    -fx-border-radius: 20;
+    /* -fx-transition: all 0.2s;  // No soportado en JavaFX CSS */
+}
+.button:hover {
+    -fx-background-color: linear-gradient(from 100% 0% to 0% 0%, #185a9d 0%, #43cea2 100%);
+    -fx-effect: dropshadow(gaussian, #43cea2aa, 8, 0.3, 0, 4);
 }
 
+/* Etiquetas */
 .label {
-    -fx-font-size: 18px;
-    -fx-text-fill: #333333;
+    -fx-font-size: 22px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #f1f1f1;
+    -fx-effect: dropshadow(gaussian, #00000044, 2, 0.2, 0, 1);
+    -fx-padding: 8 0 8 0;
 }
 
+/* Etiqueta secundaria */
+.label:focused, .label:disabled {
+    -fx-text-fill: #cccccc;
+}
+
+/* HBox para los botones de idioma */
+.hbox {
+    -fx-spacing: 20;
+    -fx-alignment: center;
+    -fx-padding: 10 0 10 0;
+}
+
+/* VBox principal */
+.vbox {
+    -fx-background-color: rgba(255,255,255,0.03);
+    -fx-background-radius: 18;
+    -fx-padding: 40 40 40 40;
+    -fx-spacing: 18;
+    -fx-effect: dropshadow(gaussian, #00000044, 16, 0.3, 0, 4);
+}
+
+/* Ventana Principal */
 #VentanaPrincipal {
     -fx-background-color: rgb(129, 129, 129);
 }
