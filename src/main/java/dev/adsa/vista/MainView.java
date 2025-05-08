@@ -12,8 +12,8 @@ public class MainView {
     private Label lblTitle;
 
     public MainView() {
-        lblTitle = new Label(GestorIdioma.getTexto("TitleGreeting"));
-        btnExit = new Button(GestorIdioma.getTexto("exit"));
+        lblTitle = new Label(GestorIdioma.getTexto("label.main.title"));
+        btnExit = new Button(GestorIdioma.getTexto("button.main.exit"));
     }
 
     public void initialize(Stage primaryStage) {
