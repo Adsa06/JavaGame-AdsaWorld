@@ -34,6 +34,10 @@ public class GestorPantallas {
         primaryStage.show();
     }
 
+    /**
+     * Muestra la pantalla principal de la aplicación.
+     * Carga la pantalla principal, la localiza con el idioma actual y la muestra en la escena principal.
+     */
     public static void mostrarMenuPrincipal() {
         try {
             ResourceBundle bundle = ResourceBundle.getBundle("i18n.messages", GestorIdioma.getLocaleActual());
@@ -44,6 +48,11 @@ public class GestorPantallas {
             e.printStackTrace();
         }
     }
+
+    /**
+     * Muestra la pantalla de configuración de la aplicación.
+     * Carga la pantalla de configuración, la localiza con el idioma actual y la muestra en la escena principal.
+     */
 
     public static void mostrarConfiguracion() {
         try {
@@ -56,6 +65,10 @@ public class GestorPantallas {
         }
     }
 
+    /**
+     * Muestra la pantalla de inicio de sesión de la aplicación.
+     * Carga la pantalla de inicio de sesión, la localiza con el idioma actual y la muestra en la escena principal.
+     */
     public static void mostrarInicioSesion() {
         try {
             ResourceBundle bundle = ResourceBundle.getBundle("i18n.messages", GestorIdioma.getLocaleActual());
