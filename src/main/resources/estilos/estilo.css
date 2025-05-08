@@ -72,3 +72,30 @@
     -fx-font-size: 14px;
     -fx-cursor: hand;
 }
+
+/* Campos de texto bonitos */
+.text-field, .password-field {
+    -fx-background-color: rgba(255,255,255,0.08);
+    -fx-background-insets: 0;
+    -fx-background-radius: 12;
+    -fx-border-color: #43cea2;
+    -fx-border-width: 2;
+    -fx-border-radius: 12;
+    -fx-text-fill: #f1f1f1;
+    -fx-font-size: 16px;
+    -fx-padding: 8 14 8 14;
+    -fx-effect: dropshadow(gaussian, #00000044, 2, 0.2, 0, 1);
+    -fx-prompt-text-fill: #cccccc;
+    -fx-font-family: "Segoe UI", "Arial", sans-serif;
+    -fx-cursor: text;
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+    -fx-highlight-fill: #43cea2;
+    -fx-highlight-text-fill: #16181a;
+}
+
+.text-field:focused, .password-field:focused {
+    -fx-border-color: #185a9d;
+    -fx-border-width: 2 2 2 2;
+    -fx-background-color: rgba(67,206,162,0.10);
+}
