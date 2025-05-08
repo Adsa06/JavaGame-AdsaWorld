@@ -1,6 +1,7 @@
 package dev.adsa.modelo;
 
 import dev.adsa.controlador.Contador;
+import dev.adsa.utils.GestorIdioma;
 import dev.adsa.vista.MainView;
 
 public class MainController {
@@ -12,11 +13,16 @@ public class MainController {
         this.view = view;
 
         // Asociar acción del botón
-        view.getBtnIncrementar().setOnAction(event -> incrementarContador());
+        view.getBtnExit().setOnAction(event -> incrementarContador());
     }
 
     private void incrementarContador() {
         contador.incrementar();
-        view.getLblContador().setText("Contador: " + contador.getCount());
+        view.getLblTitle().setText(GestorIdioma.getTexto("counter") + contador.getCount());
+        if(contador.getCount() % 2 == 0)
+            GestorIdioma.cambiarIdioma("es");
+        else
+            GestorIdioma.cambiarIdioma("en");
+
     }
 }

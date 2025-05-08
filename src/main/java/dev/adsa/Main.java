@@ -1,6 +1,7 @@
 package dev.adsa;
 
 import dev.adsa.modelo.MainController;
+import dev.adsa.utils.GestorIdioma;
 import dev.adsa.controlador.Contador;
 import dev.adsa.vista.MainView;
 import javafx.application.Application;
@@ -22,6 +23,7 @@ public class Main extends Application {
     }
 
     public static void main(String[] args) {
+        GestorIdioma.cambiarIdioma("es"); // Cambiar idioma por defecto a español
         launch(args);
     }
 }
