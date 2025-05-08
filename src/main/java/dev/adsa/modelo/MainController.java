@@ -3,6 +3,7 @@ package dev.adsa.modelo;
 import dev.adsa.controlador.Contador;
 import dev.adsa.utils.GestorIdioma;
 import dev.adsa.vista.MainView;
+import javafx.application.Platform;
 
 /** 
  * Controlador de la vista principal de la aplicación. 
@@ -58,6 +59,7 @@ public class MainController {
      */
     public void salir() {
         System.out.println("Saliendo de la aplicacion...");
+        Platform.exit();
         System.exit(0);
     }
 

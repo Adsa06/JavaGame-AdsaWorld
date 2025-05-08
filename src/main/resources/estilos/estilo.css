@@ -10,3 +10,7 @@
     -fx-font-size: 18px;
     -fx-text-fill: #333333;
 }
+
+#VentanaPrincipal {
+    -fx-background-color: rgb(129, 129, 129);
+}

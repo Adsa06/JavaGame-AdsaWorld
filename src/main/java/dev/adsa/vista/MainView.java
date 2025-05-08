@@ -42,6 +42,7 @@ public class MainView {
      */
     public void initialize(Stage primaryStage) {
         VBox root = new VBox(10); // VBox con un espacio de 10 píxeles entre elementos
+        root.setId("VentanaPrincipal"); // Asignar ID para CSS
         root.setAlignment(javafx.geometry.Pos.CENTER); // Centrar los elementos en el VBox
 
         btnExit.setTranslateY(30); // Mover hacia abajo
@@ -59,6 +60,11 @@ public class MainView {
 
         primaryStage.setTitle("Adsa World");
         primaryStage.setScene(scene);
+
+        // Configurar ventana maximizada
+        primaryStage.setMaximized(true);
+
+
         primaryStage.show();
     }
 
