@@ -1,8 +1,8 @@
 # Juego de Snake en Consola
 
 ## Información General
-[Enlace al repositorio de git](https://github.com/Adsa06/JavaGame-AdsaWorld)   
-[Enlace al documento de Especificaciones y Analisis](https://1drv.ms/w/c/c48b354083f5dd20/EWm3SnBJsz1MjxlrfQZ7IVQB_qOpL4Cxqa7QVm7hX2AQqg?e=kDD7qM)
+[Enlace al repositorio de Git](https://github.com/Adsa06/JavaGame-AdsaWorld)  
+[Enlace al documento de Especificaciones y Análisis](https://1drv.ms/w/c/c48b354083f5dd20/EWm3SnBJsz1MjxlrfQZ7IVQB_qOpL4Cxqa7QVm7hX2AQqg?e=kDD7qM)
 
 | Detalle              | Información       |
 |----------------------|-------------------|
@@ -10,18 +10,30 @@
 | **Fecha de inicio**  | 07/05/2025        |
 | **Última revisión**  | v1 07/05/2025     |
 
-Enlace al repositorio de git: 
 ## Estructura del Proyecto
 
-El proyecto está dividido en varios archivos Java organizados en:
+El proyecto está dividido en varios archivos Java organizados de la siguiente manera:
 
 ```plaintext
 javagame-adsaworld/
 ├── README.md                       # Este archivo
-├── src/
-│   └── main/java/dev/adsa/
-│       └── App.java                 # Clase principal del juego
-│
+├── src/main/
+│        ├── java/dev/adsa/
+│        │   ├── Main.java               # Clase principal de la aplicación
+│        │   ├── controlador/
+│        │   │   └── Contador.java       # Lógica del contador
+│        │   ├── modelo/
+│        │   │   └── MainController.java # Controlador principal
+│        │   ├── utils/
+│        │   │   └── GestorIdioma.java   # Gestión de idiomas
+│        │   └── vista/
+│        │       └── MainView.java       # Vista principal
+│        └── resources/
+│            ├── estilos/
+│            │   └── estilo.css          # Estilos CSS
+│            └── i18n/
+│                ├── messages_en.properties # Textos en inglés
+│                └── messages_es.properties # Textos en español
 └── pom.xml                         # Archivo de configuración de Maven
 ```
 
@@ -35,7 +47,7 @@ javagame-adsaworld/
 
 ### Compilación con Maven
 
-1. Abre una terminal y dirigete a la raiz del proyecto `javagame-adsaworld/`.
+1. Abre una terminal y dirígete a la raíz del proyecto `javagame-adsaworld/`.
 2. Ejecuta el siguiente comando para compilar el proyecto:
    ```bash
    mvn clean compile
@@ -44,29 +56,29 @@ javagame-adsaworld/
 
 ### Ejecución del Juego
 
-1. Abre una terminal y dirigete a la raiz del proyecto `javagame-adsaworld/`.
-2. En la primera terminal, ejecuta la clase principal:
+1. Abre una terminal y dirígete a la raíz del proyecto `javagame-adsaworld/`.
+2. Ejecuta la clase principal con el siguiente comando:
    ```bash
    mvn javafx:run
    ```
-   O el siguiente si quieres compilar y ejecutar al mismo tiempo:
+   O, si deseas compilar y ejecutar al mismo tiempo:
    ```bash
    mvn clean javafx:run
    ```
 
-### Creacion del javadoc con maven
+### Creación del Javadoc con Maven
 
-1. Abre una terminal  y dirigete a la raiz del proyecto `javagame-adsaworld/`.
-2. Ejecuta el siguiente comando para crear la documentacion del proyecto:
+1. Abre una terminal y dirígete a la raíz del proyecto `javagame-adsaworld/`.
+2. Ejecuta el siguiente comando para generar la documentación del proyecto:
    ```bash
    mvn javadoc:javadoc
    ```
-3. Esto generará los archivos necesarios en la carpeta `target\reports\apidocs\`.
+3. Esto generará los archivos necesarios en la carpeta `target/reports/apidocs/`.
 
-### Creacion del .jar con VSCode
+### Creación del .jar con VSCode
 
-En el IDE, en el apartado de JAVA PROJECTS hay un boton para exprotar automaticamente como .jar
-Estos se te crearan en la raiz del proyecto, para ejecutarlos abra la terminal y ejecute este comando:
+En el IDE, en el apartado de **JAVA PROJECTS**, hay un botón para exportar automáticamente como `.jar`.  
+Estos archivos se crearán en la raíz del proyecto. Para ejecutarlos, abre la terminal y ejecuta este comando:
    ```bash
    java -jar nombredelarchivo.jar
    ```
@@ -77,4 +89,4 @@ Este proyecto está diseñado para aprender y mejorar en:
 
 - **Modularización**: Descomposición del programa en métodos.
 - **Documentación**: Creación de un análisis técnico del software.
-- **Uso de herramientas modernas**: Familiarización con Visual Studio Code, JDK 21, Maven y MySQL.
+- **Uso de herramientas modernas**: Familiarización con Visual Studio Code, JDK 21, Maven, MySQL y JavaFX.
