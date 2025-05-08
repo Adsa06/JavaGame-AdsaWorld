@@ -7,17 +7,16 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.VBox?>
 
-
 <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" stylesheets="@../estilos/estilo.css" xmlns="http://javafx.com/javafx/21.0.7" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dev.adsa.controlador.LogInMenuController">
    <children>
       <Label text="%label.login.title" />
-      <TextField maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="25.0" prefWidth="200.0" promptText="%label.login.username" translateY="-5.0">
+      <TextField fx:id="usernameField" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="25.0" prefWidth="200.0" promptText="%label.login.username" translateY="-5.0">
          <VBox.margin>
             <Insets />
          </VBox.margin>
       </TextField>
-      <PasswordField maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="25.0" prefWidth="200.0" promptText="%label.login.password" />
-      <Button styleClass="botonDefault" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#iniciarSesion" prefHeight="50.0" prefWidth="200.0" text="%button.login.login" translateY="5.0" />
+      <PasswordField fx:id="passwordField" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="25.0" prefWidth="200.0" promptText="%label.login.password" />
+      <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#iniciarSesion" prefHeight="50.0" prefWidth="200.0" styleClass="botonDefault" text="%button.login.login" translateY="5.0" />
       <Button id="btnGoToRegister" mnemonicParsing="false" onAction="#irARegistrarse" text="%button.login.gotoregister" translateY="20.0" />
    </children>
 </VBox>
