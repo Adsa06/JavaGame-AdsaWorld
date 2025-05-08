@@ -4,7 +4,7 @@ import dev.adsa.utils.GestorIdioma;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.layout.StackPane;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 /**
@@ -17,6 +17,8 @@ public class MainView {
     private Button btnExit;
     /** Botón de salida */
     private Button btnIncrementCounter;
+    /** Botón para cambiar el idioma */
+    private Button btnChangeLanguage;
     /** Etiqueta de título */
     private Label lblTitle;
 
@@ -25,6 +27,7 @@ public class MainView {
         lblTitle = new Label(GestorIdioma.getTexto("label.main.title"));
         btnExit = new Button(GestorIdioma.getTexto("button.main.exit"));
         btnIncrementCounter = new Button(GestorIdioma.getTexto("button.main.incrementcounter"));
+        btnChangeLanguage = new Button(GestorIdioma.getTexto("button.main.changelanguage"));
     }
 
     
@@ -38,11 +41,14 @@ public class MainView {
      * @param primaryStage El Stage principal de la aplicación.
      */
     public void initialize(Stage primaryStage) {
-        StackPane root = new StackPane();
-        root.getChildren().addAll(btnExit, lblTitle, btnIncrementCounter);
-        StackPane.setAlignment(lblTitle, javafx.geometry.Pos.TOP_CENTER);
-        StackPane.setAlignment(btnIncrementCounter, javafx.geometry.Pos.CENTER);
-        StackPane.setAlignment(btnExit, javafx.geometry.Pos.BOTTOM_CENTER);
+        VBox root = new VBox(10); // VBox con un espacio de 10 píxeles entre elementos
+        root.setAlignment(javafx.geometry.Pos.CENTER); // Centrar los elementos en el VBox
+
+        btnExit.setTranslateY(30); // Mover hacia abajo
+        lblTitle.setTranslateY(-20); // Mover hacia arriba
+
+        // Agregar los elementos al VBox
+        root.getChildren().addAll(lblTitle, btnIncrementCounter, btnChangeLanguage, btnExit);
 
         Scene scene = new Scene(root, 300, 250);
 
@@ -78,5 +84,13 @@ public class MainView {
      */
     public Button getBtnIncrementCounter() {
         return btnIncrementCounter;
+    }
+
+    /**
+     * Devuelve el botón de cambio de idioma de la vista principal.
+     * @return El botón de cambio de idioma.
+     */
+    public Button getBtnChangeLanguage() {
+        return btnChangeLanguage;
     }
 }

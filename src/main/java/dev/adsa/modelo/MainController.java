@@ -29,6 +29,8 @@ public class MainController {
         view.getBtnIncrementCounter().setOnAction(event -> incrementarContador());
         // Asociar acción del botón de salida
         view.getBtnExit().setOnAction(event -> salir());
+        // Asociar acción del botón de cambio de idioma
+        view.getBtnChangeLanguage().setOnAction(event -> cambiarIdioma());
     }
 
     /**
@@ -38,11 +40,6 @@ public class MainController {
     private void incrementarContador() {
         contador.incrementar();
         view.getLblTitle().setText(GestorIdioma.getTexto("label.main.counter") + contador.getCount());
-        if(contador.getCount() % 2 == 0)
-            GestorIdioma.cambiarIdioma("es");
-        else
-            GestorIdioma.cambiarIdioma("en");
-            actualizarVista();
     }
 
     /**
@@ -53,13 +50,22 @@ public class MainController {
         view.getBtnExit().setText(GestorIdioma.getTexto("button.main.exit"));
         view.getBtnIncrementCounter().setText(GestorIdioma.getTexto("button.main.incrementcounter"));
         view.getLblTitle().setText(GestorIdioma.getTexto("label.main.counter") + contador.getCount());
+        view.getBtnChangeLanguage().setText(GestorIdioma.getTexto("button.main.changelanguage"));
     }
 
     /**
      * Cierra la aplicación.
      */
     public void salir() {
-        System.out.println("Saliendo de la aplicación...");
+        System.out.println("Saliendo de la aplicacion...");
         System.exit(0);
+    }
+
+    /**
+     * Funcion para cambiar el idioma de la vista.
+     */
+    public void cambiarIdioma() {
+        GestorIdioma.cambiarIdioma(GestorIdioma.getLocaleActual().getLanguage().equals("es") ? "en" : "es");
+        actualizarVista();
     }
 }
