@@ -15,6 +15,8 @@ public class MainView {
     /* Elementos de la vista */
     /** Botón de salida */
     private Button btnExit;
+    /** Botón de salida */
+    private Button btnIncrementCounter;
     /** Etiqueta de título */
     private Label lblTitle;
 
@@ -22,6 +24,7 @@ public class MainView {
     public MainView() {
         lblTitle = new Label(GestorIdioma.getTexto("label.main.title"));
         btnExit = new Button(GestorIdioma.getTexto("button.main.exit"));
+        btnIncrementCounter = new Button(GestorIdioma.getTexto("button.main.incrementcounter"));
     }
 
     
@@ -36,9 +39,10 @@ public class MainView {
      */
     public void initialize(Stage primaryStage) {
         StackPane root = new StackPane();
-        root.getChildren().addAll(btnExit, lblTitle);
+        root.getChildren().addAll(btnExit, lblTitle, btnIncrementCounter);
         StackPane.setAlignment(lblTitle, javafx.geometry.Pos.TOP_CENTER);
-        StackPane.setAlignment(btnExit, javafx.geometry.Pos.CENTER);
+        StackPane.setAlignment(btnIncrementCounter, javafx.geometry.Pos.CENTER);
+        StackPane.setAlignment(btnExit, javafx.geometry.Pos.BOTTOM_CENTER);
 
         Scene scene = new Scene(root, 300, 250);
 
@@ -47,7 +51,7 @@ public class MainView {
         
         scene.getStylesheets().add(css);
 
-        primaryStage.setTitle("Ejemplo MVC con CSS");
+        primaryStage.setTitle("Adsa World");
         primaryStage.setScene(scene);
         primaryStage.show();
     }
@@ -66,5 +70,13 @@ public class MainView {
      */
     public Label getLblTitle() {
         return lblTitle;
+    }
+
+    /**
+     * Devuelve el botón de incremento del contador de la vista principal.
+     * @return El botón de incremento del contador.
+     */
+    public Button getBtnIncrementCounter() {
+        return btnIncrementCounter;
     }
 }

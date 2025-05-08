@@ -19,14 +19,16 @@ public class MainController {
      * @param contador Instancia del modelo Contador.
      * @param view Instancia de la vista MainView.
      * 
-     * Asocia la acción del botón de salida a la función incrementarContador().
+     * Asocia la acción del botón de incremento del contador a la función incrementarContador().
      */
     public MainController(Contador contador, MainView view) {
         this.contador = contador;
         this.view = view;
 
         // Asociar acción del botón
-        view.getBtnExit().setOnAction(event -> incrementarContador());
+        view.getBtnIncrementCounter().setOnAction(event -> incrementarContador());
+        // Asociar acción del botón de salida
+        view.getBtnExit().setOnAction(event -> salir());
     }
 
     /**
@@ -49,6 +51,15 @@ public class MainController {
      */
     public void actualizarVista() {
         view.getBtnExit().setText(GestorIdioma.getTexto("button.main.exit"));
+        view.getBtnIncrementCounter().setText(GestorIdioma.getTexto("button.main.incrementcounter"));
         view.getLblTitle().setText(GestorIdioma.getTexto("label.main.counter") + contador.getCount());
+    }
+
+    /**
+     * Cierra la aplicación.
+     */
+    public void salir() {
+        System.out.println("Saliendo de la aplicación...");
+        System.exit(0);
     }
 }
