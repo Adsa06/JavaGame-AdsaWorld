@@ -12,10 +12,10 @@
       <Label text="%label.config.language" translateY="-10.0" />
       <HBox alignment="CENTER" prefHeight="0.0" prefWidth="600.0">
          <children>
-            <Button mnemonicParsing="false" onAction="#cambiarIdiomaEs" text="%button.config.language.es" translateX="-3.0" />
-            <Button mnemonicParsing="false" onAction="#cambiarIdiomaEn" text="%button.config.language.en" translateX="3.0" />
+            <Button styleClass="botonDefault" mnemonicParsing="false" onAction="#cambiarIdiomaEs" text="%button.config.language.es" translateX="-3.0" />
+            <Button styleClass="botonDefault" mnemonicParsing="false" onAction="#cambiarIdiomaEn" text="%button.config.language.en" translateX="3.0" />
          </children>
       </HBox>
-      <Button mnemonicParsing="false" onAction="#salir" text="%button.config.exitsave" translateY="30.0" />
+      <Button styleClass="botonDefault" mnemonicParsing="false" onAction="#salir" text="%button.config.exitsave" translateY="30.0" />
    </children>
 </VBox>

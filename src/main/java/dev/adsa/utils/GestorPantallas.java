@@ -29,6 +29,8 @@ public class GestorPantallas {
         primaryStage.setTitle("Adsa World");
         primaryStage.setScene(scene);
         primaryStage.setMaximized(true);
+        primaryStage.setMinWidth(800);
+        primaryStage.setMinHeight(600);
         primaryStage.show();
     }
 
@@ -47,6 +49,17 @@ public class GestorPantallas {
         try {
             ResourceBundle bundle = ResourceBundle.getBundle("i18n.messages", GestorIdioma.getLocaleActual());
             FXMLLoader loader = new FXMLLoader(GestorPantallas.class.getResource("/vista/ConfigMenu.fxml"), bundle);
+            Parent root = loader.load();
+            scene.setRoot(root);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void mostrarInicioSesion() {
+        try {
+            ResourceBundle bundle = ResourceBundle.getBundle("i18n.messages", GestorIdioma.getLocaleActual());
+            FXMLLoader loader = new FXMLLoader(GestorPantallas.class.getResource("/vista/LogInMenu.fxml"), bundle);
             Parent root = loader.load();
             scene.setRoot(root);
         } catch (IOException e) {

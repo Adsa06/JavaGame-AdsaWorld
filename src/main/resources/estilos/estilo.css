@@ -3,8 +3,8 @@
     -fx-background-color: linear-gradient(from 0% 0% to 0% 100%, #16181a, #232526);
 }
 
-/* Botones */
-.button {
+/* Botón por defecto */
+.botonDefault {
     -fx-background-color: linear-gradient(from 0% 0% to 100% 0%, #43cea2 0%, #185a9d 100%);
     -fx-text-fill: white;
     -fx-font-size: 16px;
@@ -16,9 +16,8 @@
     -fx-border-color: #ffffff33;
     -fx-border-width: 1.5;
     -fx-border-radius: 20;
-    /* -fx-transition: all 0.2s;  // No soportado en JavaFX CSS */
 }
-.button:hover {
+.botonDefault:hover {
     -fx-background-color: linear-gradient(from 100% 0% to 0% 0%, #185a9d 0%, #43cea2 100%);
     -fx-effect: dropshadow(gaussian, #43cea2aa, 8, 0.3, 0, 4);
 }
@@ -56,4 +55,14 @@
 /* Ventana Principal */
 #VentanaPrincipal {
     -fx-background-color: rgb(129, 129, 129);
+}
+
+#btnGoToRegister {
+    -fx-background-color: transparent;
+    -fx-text-fill: rgb(129, 129, 129);
+    -fx-underline: true;
+    -fx-border-width: 0;
+    -fx-padding: 0;
+    -fx-font-size: 14px;
+    -fx-cursor: hand;
 }
