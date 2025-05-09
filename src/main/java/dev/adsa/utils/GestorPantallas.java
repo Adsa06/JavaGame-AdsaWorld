@@ -80,6 +80,21 @@ public class GestorPantallas {
         }
     }
 
+    /**
+     * Muestra la pantalla de registro de la aplicación.
+     * Carga la pantalla de registro, la localiza con el idioma actual y la muestra en la escena principal.
+     */
+    public static void mostrarRegistro() {
+        try {
+            ResourceBundle bundle = ResourceBundle.getBundle("i18n.messages", GestorIdioma.getLocaleActual());
+            FXMLLoader loader = new FXMLLoader(GestorPantallas.class.getResource("/vista/RegisterMenu.fxml"), bundle);
+            Parent root = loader.load();
+            scene.setRoot(root);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
     // public static void mostrarGameplay(String ciudad) {
     // // Crear por código el nodo raíz del gameplay
     // Pane juego = new JuegoCiudad(ciudad); // Clase personalizada

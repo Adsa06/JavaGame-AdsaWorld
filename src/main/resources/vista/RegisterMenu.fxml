@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" stylesheets="@../estilos/estilo.css" xmlns="http://javafx.com/javafx/21.0.7" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dev.adsa.controlador.RegisterMenuController">
+   <children>
+      <Label text="%label.register.title" translateY="-10.0" />
+      <TextField fx:id="usernameField" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="25.0" prefWidth="200.0" promptText="%label.register.username" translateY="-8.0">
+         <VBox.margin>
+            <Insets />
+         </VBox.margin>
+      </TextField>
+      <PasswordField fx:id="passwordField" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="25.0" prefWidth="200.0" promptText="%label.register.password" translateY="-4.0" />
+      <PasswordField fx:id="confirmPasswordField" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="25.0" prefWidth="200.0" promptText="%label.register.passwordconfirm" />
+      <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#registrarse" prefHeight="50.0" prefWidth="200.0" styleClass="botonDefault" text="%button.register.register" translateY="8.0" />
+      <Button id="btnGoToRegister" mnemonicParsing="false" onAction="#irALogin" text="%button.register.gotologin" translateY="20.0" />
+   </children>
+</VBox>
