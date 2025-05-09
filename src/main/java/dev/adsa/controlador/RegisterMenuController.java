@@ -5,6 +5,7 @@ import dev.adsa.utils.GestorPantallas;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.PasswordField;
 
 public class RegisterMenuController {
@@ -26,6 +27,15 @@ public class RegisterMenuController {
      */
     @FXML
     private PasswordField confirmPasswordField;
+
+    @FXML
+    private CheckBox showPasswordCheckbox;
+
+    @FXML
+    private TextField passwordTextField;
+
+    @FXML
+    private TextField confirmPasswordTextField;
 
     /**
      * Maneja el evento de inicio de sesión.
@@ -61,5 +71,28 @@ public class RegisterMenuController {
     @FXML
     private void irALogin(ActionEvent event) {
         GestorPantallas.mostrarInicioSesion();
+    }
+
+    @FXML
+    private void mostrarContra(ActionEvent event) {
+        if (showPasswordCheckbox.isSelected()) {
+            // Mostrar contraseñas
+            passwordTextField.setText(passwordField.getText());
+            passwordTextField.setVisible(true);
+            passwordField.setVisible(false);
+
+            confirmPasswordTextField.setText(confirmPasswordField.getText());
+            confirmPasswordTextField.setVisible(true);
+            confirmPasswordField.setVisible(false);
+        } else {
+            // Ocultar contraseñas
+            passwordField.setText(passwordTextField.getText());
+            passwordField.setVisible(true);
+            passwordTextField.setVisible(false);
+
+            confirmPasswordField.setText(confirmPasswordTextField.getText());
+            confirmPasswordField.setVisible(true);
+            confirmPasswordTextField.setVisible(false);
+        }
     }
 }
