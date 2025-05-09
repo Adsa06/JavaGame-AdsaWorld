@@ -5,6 +5,7 @@ import dev.adsa.utils.GestorPantallas;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.PasswordField;
 
 public class LogInMenuController {
@@ -20,6 +21,16 @@ public class LogInMenuController {
      */
     @FXML
     private PasswordField passwordField;
+
+    /**
+     * Campos de texto para la ver la contraseña.
+     */
+    @FXML
+    private TextField passwordTextField;
+
+    
+    @FXML
+    private CheckBox showPasswordCheckbox;
 
     /**
      * Maneja el evento de inicio de sesión.
@@ -48,5 +59,21 @@ public class LogInMenuController {
     @FXML
     private void irARegistrarse(ActionEvent event) {
         GestorPantallas.mostrarRegistro();
+    }
+
+    /**
+     * Muestra u oculta la contraseña en función del estado del CheckBox.
+     */
+    @FXML
+    private void mostrarContra(ActionEvent event) {
+        if(showPasswordCheckbox.isSelected()) {
+            passwordTextField.setText(passwordField.getText());
+            passwordTextField.setVisible(true);
+            passwordField.setVisible(false);
+        } else {
+            passwordField.setText(passwordTextField.getText());
+            passwordTextField.setVisible(false);
+            passwordField.setVisible(true);
+        }
     }
 }
