@@ -4,8 +4,12 @@ import dev.adsa.utils.GestorIdioma;
 import dev.adsa.utils.GestorPantallas;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.ChoiceBox;
 
 public class ConfigMenuController {
+
+    @FXML
+    private ChoiceBox<String> idiomaElegido;
 
     /**
      * Cambia el idioma actual de la aplicacion a español.
@@ -38,5 +42,14 @@ public class ConfigMenuController {
     @FXML
     private void salir(ActionEvent event) {
         GestorPantallas.mostrarMenuPrincipal();
+    }
+
+    @FXML
+    private void initialize() {
+        // Agregar los idiomas al ChoiceBox
+        idiomaElegido.getItems().addAll("Español", "English");
+
+        // Establecer un valor predeterminado
+        idiomaElegido.setValue("Español");
     }
 }

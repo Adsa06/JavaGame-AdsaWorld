@@ -19,7 +19,7 @@
       </TextField>
       <StackPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="25.0" prefWidth="200.0">
          <children>
-            <TextField fx:id="passwordTextField" promptText="%label.login.password" />
+            <TextField fx:id="passwordTextField" promptText="%label.login.password" visible="false" />
             <PasswordField fx:id="passwordField" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="25.0" prefWidth="200.0" promptText="%label.login.password" />
          </children>
       </StackPane>
