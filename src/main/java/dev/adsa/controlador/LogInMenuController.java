@@ -5,6 +5,7 @@ import dev.adsa.utils.GestorPantallas;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
+import javafx.scene.text.Text;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.PasswordField;
 
@@ -28,9 +29,27 @@ public class LogInMenuController {
     @FXML
     private TextField passwordTextField;
 
-    
+    /**
+     * CheckBox para mostrar u ocultar la contraseña.
+     */
     @FXML
     private CheckBox showPasswordCheckbox;
+
+    /**
+     * Campos de texto para mostrar mensajes de error.
+     */
+    @FXML
+    private Text errorCredential;
+    /**
+     * Campos de texto para mostrar mensajes de error.
+     */
+    @FXML
+    private Text errorNotFound;
+    /**
+     * Campos de texto para mostrar mensajes de error.
+     */
+    @FXML
+    private Text errorEmpty;
 
     /**
      * Maneja el evento de inicio de sesión.
@@ -43,11 +62,17 @@ public class LogInMenuController {
     private void iniciarSesion(ActionEvent event) {
         String username = usernameField.getText();
         String password = passwordField.getText();
-        // Ahora puedes trabajar con username y password
-        if(GestorDB.login(username, password))
-            GestorPantallas.mostrarMenuPrincipal();
-        else
-            System.out.println("Usuario o contraseña incorrectos.");
+
+        if(username.isEmpty() || password.isEmpty()) {
+            mostrarError("errorEmpty");
+        } else {
+            String resultado = GestorDB.login(username, password);
+            if (resultado.equals("exitoso")) {
+                GestorPantallas.mostrarMenuPrincipal();
+            } else {
+                mostrarError(resultado);
+            }
+        }
     }
 
     /**
@@ -66,7 +91,7 @@ public class LogInMenuController {
      */
     @FXML
     private void mostrarContra(ActionEvent event) {
-        if(showPasswordCheckbox.isSelected()) {
+        if (showPasswordCheckbox.isSelected()) {
             passwordTextField.setText(passwordField.getText());
             passwordTextField.setVisible(true);
             passwordField.setVisible(false);
@@ -74,6 +99,19 @@ public class LogInMenuController {
             passwordField.setText(passwordTextField.getText());
             passwordTextField.setVisible(false);
             passwordField.setVisible(true);
+        }
+    }
+
+    private void mostrarError(String mensaje) {
+        errorCredential.setVisible(false);
+        errorNotFound.setVisible(false);
+        errorEmpty.setVisible(false);
+
+        switch (mensaje) {
+            case "errorCredential" -> errorCredential.setVisible(true);
+            case "errorNotFound" -> errorNotFound.setVisible(true);
+            case "errorEmpty" -> errorEmpty.setVisible(true);
+            default -> {}
         }
     }
 }

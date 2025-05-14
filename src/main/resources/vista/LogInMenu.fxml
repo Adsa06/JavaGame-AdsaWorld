@@ -8,6 +8,7 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Text?>
 
 <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" stylesheets="@../estilos/estilo.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dev.adsa.controlador.LogInMenuController">
    <children>
@@ -24,6 +25,16 @@
          </children>
       </StackPane>
       <CheckBox fx:id="showPasswordCheckbox" mnemonicParsing="false" onAction="#mostrarContra" text="%checkbox.login.showpassword" translateY="3.0" />
+      <StackPane>
+         <children>
+            <Text fx:id="errorCredential" fill="#c63b3b" strokeType="OUTSIDE" strokeWidth="0.0" text="%text.login.errorCredential" visible="false" />
+            <Text fx:id="errorNotFound" fill="#c63b3b" strokeType="OUTSIDE" strokeWidth="0.0" text="%text.login.errorNotFound" visible="false" />
+            <Text fx:id="errorEmpty" fill="#c63b3b" strokeType="OUTSIDE" strokeWidth="0.0" text="%text.login.errorEmpty" visible="false" />
+         </children>
+         <VBox.margin>
+            <Insets top="5.0" />
+         </VBox.margin>
+      </StackPane>
       <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#iniciarSesion" prefHeight="50.0" prefWidth="200.0" styleClass="botonDefault" text="%button.login.login" translateY="8.0" />
       <Button id="btnGoToRegister" mnemonicParsing="false" onAction="#irARegistrarse" text="%button.login.gotoregister" translateY="20.0" />
    </children>

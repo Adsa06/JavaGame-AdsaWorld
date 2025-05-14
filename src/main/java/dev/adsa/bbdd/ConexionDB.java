@@ -16,7 +16,7 @@ public class ConexionDB {
     /** Usuario con el cual se conecta */
     private static final String USER = "root";
     /** Contraseña con la que se conecta */
-    private static final String PASSWORD = "Password1234";
+    private static final String PASSWORD = ""; /*Password1234 */
 
     /**
      * Metodo que devuelve la conexion a la base de datos
