@@ -49,14 +49,9 @@ public class GestorIdioma {
      */
     public static void cambiarIdioma(String idioma) {
         switch (idioma) {
-            case "es":
-                setIdioma(Locale.of("es", "ES"));
-                break;
-            case "en":
-                setIdioma(Locale.of("en", "US"));
-                break;
-            default:
-                setIdioma(Locale.of("es", "ES"));
+            case "es" -> setIdioma(Locale.of("es", "ES"));
+            case "en" -> setIdioma(Locale.of("en", "US"));
+            default -> setIdioma(Locale.of("es", "ES"));
         }
     }
 }
