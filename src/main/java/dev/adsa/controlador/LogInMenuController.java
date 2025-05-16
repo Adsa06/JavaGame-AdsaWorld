@@ -108,6 +108,11 @@ public class LogInMenuController {
         }
     }
 
+    /**
+     * Muestra el mensaje de error correspondiente segun el parametro "mensaje".
+     * 
+     * @param mensaje El mensaje de error a mostrar. Puede ser "errorCredential", "errorNotFound" o "errorEmpty".
+     */
     private void mostrarError(String mensaje) {
         errorCredential.setVisible(false);
         errorNotFound.setVisible(false);

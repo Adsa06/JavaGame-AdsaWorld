@@ -1,12 +1,16 @@
 package dev.adsa.controlador;
 
 import dev.adsa.bbdd.GestorDB;
+import dev.adsa.modelo.SesionActual;
+import dev.adsa.modelo.Usuario;
 import dev.adsa.utils.GestorPantallas;
+import dev.adsa.utils.Utilidades;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.PasswordField;
+import javafx.scene.text.Text;
 
 public class RegisterMenuController {
 
@@ -28,14 +32,49 @@ public class RegisterMenuController {
     @FXML
     private PasswordField confirmPasswordField;
 
+    /**
+     * Checkbox para mostrar u ocultar la contraseña.
+     */
     @FXML
     private CheckBox showPasswordCheckbox;
 
+    /** Campos de texto para la contraseña. */
     @FXML
     private TextField passwordTextField;
 
+    /** Campos de texto para la confirmación de la contraseña. */
     @FXML
     private TextField confirmPasswordTextField;
+
+    /**
+     * Mensaje de error cuando el usuario no es valido.
+     */
+    @FXML
+    private Text errorNotValidUser;
+
+    /**
+     * Mensaje de error cuando hay campos vacíos.
+     */
+    @FXML
+    private Text errorEmpty;
+
+    /**
+     * Mensaje de error cuando las contraseñas no coinciden.
+     */
+    @FXML
+    private Text errorPassword;
+
+    /**
+     * Mensaje de error cuando el usuario ya existe.
+     */
+    @FXML
+    private Text errorUserExists;
+
+    /**
+     * Mensaje de error inesperado.
+     */
+    @FXML    
+    private Text UnexpectedError;
 
     /**
      * Maneja el evento de inicio de sesión.
@@ -51,15 +90,18 @@ public class RegisterMenuController {
         String confirmPassword = confirmPasswordField.getText();
         // Ahora puedes trabajar con username y password
         if(username.isEmpty() || password.isEmpty())
-            System.out.println("Por favor, completa todos los campos.");
-        else if(username.length() > 50 || password.length() > 255)
-            System.out.println("El nombre de usuario o la contraseña son demasiado largos.");
+            mostrarError("errorEmpty");
+        else if(Utilidades.validarPatron(".*[\\\\/:*?\"<>|\\s].*", username) || username.length() > 50 || password.length() > 255)
+            mostrarError("errorNotValidUser");
         else if(!password.equals(confirmPassword))
-            System.out.println("Las contraseñas no coinciden.");
-        else if(GestorDB.registrarUsuario(username, password))
+            mostrarError("errorPassword");
+        else if(GestorDB.existeUsuario(username))
+            mostrarError("errorUserExists");
+        else if(GestorDB.registrarUsuario(username, password)) {
+            SesionActual.setUsuario(new Usuario(username, "es"));
             GestorPantallas.mostrarMenuPrincipal();
-        else
-            System.out.println("Usuario o contraseña incorrectos.");
+        } else
+            mostrarError("UnexpectedError");
     }
 
     /**
@@ -93,6 +135,28 @@ public class RegisterMenuController {
             confirmPasswordField.setText(confirmPasswordTextField.getText());
             confirmPasswordField.setVisible(true);
             confirmPasswordTextField.setVisible(false);
+        }
+    }
+
+    /**
+     * Muestra el mensaje de error correspondiente segun el parametro "mensaje".
+     * 
+     * @param mensaje El mensaje de error a mostrar.
+     */
+    private void mostrarError(String mensaje) {
+        errorEmpty.setVisible(false);
+        errorNotValidUser.setVisible(false);
+        errorUserExists.setVisible(false);
+        errorPassword.setVisible(false);
+        UnexpectedError.setVisible(false);
+
+        switch (mensaje) {
+            case "errorNotValidUser" -> errorNotValidUser.setVisible(true);
+            case "errorUserExists" -> errorUserExists.setVisible(true);
+            case "errorEmpty" -> errorEmpty.setVisible(true);
+            case "errorPassword" -> errorPassword.setVisible(true);
+            case "UnexpectedError" -> UnexpectedError.setVisible(true);
+            default -> {}
         }
     }
 }

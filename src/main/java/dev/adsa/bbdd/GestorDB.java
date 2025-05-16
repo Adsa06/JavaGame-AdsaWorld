@@ -67,4 +67,23 @@ public class GestorDB {
         return resultado;
     }
 
+    public static boolean existeUsuario(String username) {
+        boolean existe = false;
+        String sqlSelectUsuario = "SELECT * FROM usuarios WHERE username = ?";
+        try (Connection conn = ConexionDB.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sqlSelectUsuario)) {
+
+            stmt.setString(1, username);
+            ResultSet rs = stmt.executeQuery();
+
+            if (rs.next())
+                existe = true;
+
+
+        } catch (SQLException e) {
+            System.out.println("Error al comprobar si existe el usuario: " + e.getMessage());
+        }
+        return existe;
+    }
+
 }

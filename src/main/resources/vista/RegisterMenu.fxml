@@ -7,6 +7,7 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Text?>
 
 <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" stylesheets="@../estilos/estilo.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dev.adsa.controlador.RegisterMenuController">
    <children>
@@ -25,7 +26,16 @@
          </children>
       </StackPane>
       <CheckBox fx:id="showPasswordCheckbox" mnemonicParsing="false" onAction="#mostrarContra" text="%checkbox.register.showpassword" translateY="10.0" />
-      <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#registrarse" prefHeight="50.0" prefWidth="200.0" styleClass="botonDefault" text="%button.register.register" translateY="15.0" />
+      <StackPane translateY="15.0">
+         <children>
+            <Text fx:id="errorNotValidUser" fill="#c63b3b" strokeType="OUTSIDE" strokeWidth="0.0" text="%text.register.errorNotValidUser" visible="false" />
+            <Text fx:id="errorEmpty" fill="#c63b3b" strokeType="OUTSIDE" strokeWidth="0.0" text="%text.register.errorEmpty" visible="false" />
+            <Text fx:id="errorPassword" fill="#c63b3b" strokeType="OUTSIDE" strokeWidth="0.0" text="%text.register.errorPassword" visible="false" />
+            <Text fx:id="errorUserExists" fill="#c63b3b" strokeType="OUTSIDE" strokeWidth="0.0" text="%text.register.errorUserExists" visible="false" />
+            <Text fx:id="UnexpectedError" fill="#c63b3b" strokeType="OUTSIDE" strokeWidth="0.0" text="%text.register.UnexpectedError" visible="false" />
+         </children>
+      </StackPane>
+      <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#registrarse" prefHeight="50.0" prefWidth="200.0" styleClass="botonDefault" text="%button.register.register" translateY="25.0" />
       <Button id="btnGoToRegister" mnemonicParsing="false" onAction="#irALogin" text="%button.register.gotologin" translateY="30.0" />
    </children>
 </VBox>
