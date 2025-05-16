@@ -53,6 +53,7 @@ public class ConfigMenuController {
     @FXML
     private void initialize() {
         // Agregar los idiomas al ChoiceBox
+        idiomaElegido.getItems().clear();
         idiomaElegido.getItems().addAll(idiomasDisponibles);
 
         // Establecer un valor predeterminado

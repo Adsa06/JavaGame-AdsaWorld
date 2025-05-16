@@ -99,3 +99,36 @@
     -fx-border-width: 2 2 2 2;
     -fx-background-color: rgba(67,206,162,0.10);
 }
+
+.choice-box-custom {
+    -fx-background-color: transparent;
+    -fx-border-color: #43cea2;
+    -fx-font-size: 20px;
+    -fx-text-fill: #f1f1f1;
+    -fx-background-color: rgba(255,255,255,0.08);
+}
+
+.choice-box .label {
+    -fx-font-size: 16px; /* o el tamaño que prefieras */
+    -fx-effect: none;
+    -fx-padding: 0 0 0 0;
+}
+
+/* Cambia el fondo del popup desplegable */
+.choice-box .context-menu {
+    -fx-background-color: #232526; /* tu color de fondo */
+}
+
+/* Cambia el color de fondo y texto de cada opción */
+.choice-box .menu-item {
+    -fx-background-color: transparent; /* o el color que prefieras */
+}
+
+.choice-box .menu-item .label {
+    -fx-text-fill: #f1f1f1; /* color del texto */
+}
+
+/* Opción seleccionada al pasar el ratón */
+.choice-box .menu-item:focused {
+    -fx-background-color: #43cea2; /* color al pasar el ratón */
+}
