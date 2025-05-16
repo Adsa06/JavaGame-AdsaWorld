@@ -56,10 +56,8 @@ public class Usuario implements Serializable {
     /**
      * Guarda un objeto Player en un archivo especificado.
      * 
-     * @param player El objeto Player que se desea guardar.
      */
-
-    public static void guardarUsuario(Usuario usuario) {
+    public void guardarUsuario() {
 
         File file = new File(Utilidades.conseguirPath() + "Profiles");
         if (!file.exists()) {
@@ -67,8 +65,8 @@ public class Usuario implements Serializable {
         }
 
         try (ObjectOutputStream oos = new ObjectOutputStream(
-                new FileOutputStream(file + "/" + usuario.getNombre() + ".dat"))) {
-            oos.writeObject(usuario);
+                new FileOutputStream(file + "/" + nombre + ".dat"))) {
+            oos.writeObject(this);
             System.out.println("Usuario guardado correctamente");
             oos.close();
         } catch (IOException e) {
@@ -79,7 +77,7 @@ public class Usuario implements Serializable {
     /**
      * Carga un objeto Player desde un archivo especificado.
      * 
-     * @param nombreJugador La ruta del archivo desde donde se cargará el objeto
+     * @param nombreUsuario La ruta del archivo desde donde se cargará el objeto
      *                      Player.
      * @return El objeto Player cargado desde el archivo, o null si ocurre un error.
      */
@@ -104,12 +102,13 @@ public class Usuario implements Serializable {
     }
 
     /**
+     * @deprecated
      * Cargar idioma preferido del usuario
      * 
      * @param nombreJugador El nombre del usuario
      * 
      * @return El idioma preferido del usuario
-     *
+     * 
      */
     public static String cargarIdiomaPreferido(String nombreUsuario) {
         File file = new File(Utilidades.conseguirPath() + "Profiles/" + nombreUsuario + ".dat");

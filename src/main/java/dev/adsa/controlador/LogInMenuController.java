@@ -1,6 +1,7 @@
 package dev.adsa.controlador;
 
 import dev.adsa.bbdd.GestorDB;
+import dev.adsa.modelo.SesionActual;
 import dev.adsa.modelo.Usuario;
 import dev.adsa.utils.GestorIdioma;
 import dev.adsa.utils.GestorPantallas;
@@ -70,7 +71,9 @@ public class LogInMenuController {
         } else {
             String resultado = GestorDB.login(username, password);
             if (resultado.equals("exitoso")) {
-                GestorIdioma.cambiarIdioma(Usuario.cargarIdiomaPreferido(username));
+                Usuario usuario = Usuario.cargarUsuario(username);
+                GestorIdioma.cambiarIdioma(usuario.getIdiomaPreferido());
+                SesionActual.setUsuario(usuario);
                 GestorPantallas.mostrarMenuPrincipal();
             } else {
                 mostrarError(resultado);

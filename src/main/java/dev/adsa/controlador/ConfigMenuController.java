@@ -1,5 +1,6 @@
 package dev.adsa.controlador;
 
+import dev.adsa.modelo.SesionActual;
 import dev.adsa.utils.GestorIdioma;
 import dev.adsa.utils.GestorPantallas;
 import javafx.event.ActionEvent;
@@ -44,6 +45,7 @@ public class ConfigMenuController {
      */
     @FXML
     private void salir(ActionEvent event) {
+        SesionActual.getUsuario().setIdiomaPreferido(GestorIdioma.getIdiomaActual());
         GestorPantallas.mostrarMenuPrincipal();
     }
 
