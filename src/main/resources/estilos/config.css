@@ -1,0 +1,33 @@
+/* ChoiceBox personalizado */
+.choice-box-custom {
+    -fx-background-color: transparent;
+    -fx-border-color: #43cea2;
+    -fx-font-size: 20px;
+    -fx-text-fill: #f1f1f1;
+    -fx-background-color: rgba(255,255,255,0.08);
+}
+
+/* Ajuste de labels internos del ChoiceBox */
+.choice-box .label {
+    -fx-font-size: 16px;
+    -fx-effect: none;
+    -fx-padding: 0 0 0 0;
+}
+
+/* Cambia el fondo del popup desplegable */
+.choice-box .context-menu {
+    -fx-background-color: #232526;
+}
+
+/* Cambia el color de fondo y texto de cada opción */
+.choice-box .menu-item {
+    -fx-background-color: transparent;
+}
+.choice-box .menu-item .label {
+    -fx-text-fill: #f1f1f1;
+}
+
+/* Opción seleccionada al pasar el ratón */
+.choice-box .menu-item:focused {
+    -fx-background-color: #43cea2;
+}

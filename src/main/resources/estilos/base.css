@@ -21,14 +21,13 @@
     -fx-background-color: linear-gradient(from 100% 0% to 0% 0%, #185a9d 0%, #43cea2 100%);
     -fx-effect: dropshadow(gaussian, #43cea2aa, 8, 0.3, 0, 4);
 }
-
 .botonDefault:pressed {
     -fx-background-color: linear-gradient(from 0% 0% to 100% 0%, #43cea2 0%, #185a9d 100%);
     -fx-effect: dropshadow(gaussian, #00000033, 5, 0.5, 0, 6);
     -fx-padding: 12 24 12 24;
 }
 
-/* Etiquetas */
+/* Etiquetas generales */
 .label {
     -fx-font-size: 22px;
     -fx-font-weight: bold;
@@ -36,41 +35,22 @@
     -fx-effect: dropshadow(gaussian, #00000044, 2, 0.2, 0, 1);
     -fx-padding: 8 0 8 0;
 }
-
-/* Etiqueta secundaria */
 .label:focused, .label:disabled {
     -fx-text-fill: #cccccc;
 }
 
-/* HBox para los botones de idioma */
+/* HBox y VBox generales */
 .hbox {
     -fx-spacing: 20;
     -fx-alignment: center;
     -fx-padding: 10 0 10 0;
 }
-
-/* VBox principal */
 .vbox {
     -fx-background-color: rgba(255,255,255,0.03);
     -fx-background-radius: 18;
     -fx-padding: 40 40 40 40;
     -fx-spacing: 18;
     -fx-effect: dropshadow(gaussian, #00000044, 16, 0.3, 0, 4);
-}
-
-/* Ventana Principal */
-#VentanaPrincipal {
-    -fx-background-color: rgb(129, 129, 129);
-}
-
-#btnGoToRegister {
-    -fx-background-color: transparent;
-    -fx-text-fill: rgb(129, 129, 129);
-    -fx-underline: true;
-    -fx-border-width: 0;
-    -fx-padding: 0;
-    -fx-font-size: 14px;
-    -fx-cursor: hand;
 }
 
 /* Campos de texto bonitos */
@@ -93,42 +73,8 @@
     -fx-highlight-fill: #43cea2;
     -fx-highlight-text-fill: #16181a;
 }
-
 .text-field:focused, .password-field:focused {
     -fx-border-color: #185a9d;
     -fx-border-width: 2 2 2 2;
     -fx-background-color: rgba(67,206,162,0.10);
-}
-
-.choice-box-custom {
-    -fx-background-color: transparent;
-    -fx-border-color: #43cea2;
-    -fx-font-size: 20px;
-    -fx-text-fill: #f1f1f1;
-    -fx-background-color: rgba(255,255,255,0.08);
-}
-
-.choice-box .label {
-    -fx-font-size: 16px; /* o el tamaño que prefieras */
-    -fx-effect: none;
-    -fx-padding: 0 0 0 0;
-}
-
-/* Cambia el fondo del popup desplegable */
-.choice-box .context-menu {
-    -fx-background-color: #232526; /* tu color de fondo */
-}
-
-/* Cambia el color de fondo y texto de cada opción */
-.choice-box .menu-item {
-    -fx-background-color: transparent; /* o el color que prefieras */
-}
-
-.choice-box .menu-item .label {
-    -fx-text-fill: #f1f1f1; /* color del texto */
-}
-
-/* Opción seleccionada al pasar el ratón */
-.choice-box .menu-item:focused {
-    -fx-background-color: #43cea2; /* color al pasar el ratón */
 }

@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" stylesheets="@../estilos/estilo.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dev.adsa.controlador.ConfigMenuController">
+<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" stylesheets="@../estilos/base.css,@../estilos/config.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dev.adsa.controlador.ConfigMenuController">
    <children>
       <Label text="%label.config.title" translateY="-20.0" />
       <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="15.0" prefWidth="500.0">

@@ -1,0 +1,10 @@
+/* Botón para ir a login */
+#btnGoToRegister {
+    -fx-background-color: transparent;
+    -fx-text-fill: rgb(129, 129, 129);
+    -fx-underline: true;
+    -fx-border-width: 0;
+    -fx-padding: 0;
+    -fx-font-size: 14px;
+    -fx-cursor: hand;
+}
