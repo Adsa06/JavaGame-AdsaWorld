@@ -107,7 +107,7 @@ Este proyecto utiliza **MySQL** como sistema de gestión de base de datos para a
    SOURCE /ruta/a/tu/proyecto/javagame-adsaworld/adsaworldDB.sql;
    ```
 4. El script creará la base de datos `adsaworldDB` y la tabla `usuarios` necesaria para el funcionamiento del juego.
-5. Si necesitas cambiar el usuario, contraseña o el nombre de la base de datos, edita el archivo `ConexionDB.java` en el paquete `dev.adsa.utils` para que coincidan con tu configuración local.
+5. Si necesitas cambiar el usuario, contraseña o el nombre de la base de datos, edita el archivo `config.properties` en la carpeta resources para que coincidan con tu configuración local.
 
 > **Nota:**  
 > El juego no funcionará correctamente si la base de datos no está creada o las credenciales no son correctas.
