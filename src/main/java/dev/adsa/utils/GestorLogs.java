@@ -15,6 +15,14 @@ import dev.adsa.modelo.SesionActual;
 public class GestorLogs {
 
 
+    /**
+     * Crea un log con el mensaje especificado en el parametro "mensaje".
+     * El log se guardara en un archivo de texto en la carpeta "Logs" 
+     * con el nombre de la fecha en formato "yyyy-MM-dd_HH-mm-ss-SSS.log"
+     * La estructura del log es la siguiente:
+     * [fecha] [nombre de usuario o Desconocido] mensaje
+     * @param mensaje El mensaje que se quiere guardar en el log
+     */
     public static void crearLog(String mensaje) {
 
         File file = new File(Utilidades.conseguirPath() + "Logs");
