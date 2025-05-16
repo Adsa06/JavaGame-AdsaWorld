@@ -2,6 +2,8 @@ package dev.adsa.utils;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 public class Utilidades {
     /**
@@ -34,5 +36,15 @@ public class Utilidades {
         Pattern pattern = Pattern.compile(patron);
         Matcher matcher = pattern.matcher(cadena);
         return matcher.find();
+    }
+
+    /**
+     * Formatea una fecha en un formato específico.
+     * 
+     * @param fecha La fecha a formatear.
+     * @return La fecha formateada como una cadena de texto.
+     */
+    public static String formatFecha(LocalDateTime fecha) {
+        return fecha.format(DateTimeFormatter.ofPattern("yyyy-MM-dd_HH-mm-ss-SSS"));
     }
 }

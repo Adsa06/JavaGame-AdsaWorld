@@ -8,6 +8,7 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
 
+import dev.adsa.utils.GestorLogs;
 import dev.adsa.utils.Utilidades;
 
 public class Usuario implements Serializable {
@@ -71,6 +72,7 @@ public class Usuario implements Serializable {
             oos.close();
         } catch (IOException e) {
             e.printStackTrace();
+            GestorLogs.crearLog("Error al guardar el usuario: " + e.getMessage());
         }
     }
 
@@ -91,8 +93,10 @@ public class Usuario implements Serializable {
                 ois.close();
             } catch (IOException e) {
                 e.printStackTrace();
+                GestorLogs.crearLog("Error al cargar el usuario (IO): " + e.getMessage());
             } catch (ClassNotFoundException e) {
                 e.printStackTrace();
+                GestorLogs.crearLog("Error al cargar el usuario (ClassNotFound): " + e.getMessage());
             }
         } else {
             usuario = new Usuario(nombreUsuario, "es");
@@ -121,8 +125,10 @@ public class Usuario implements Serializable {
                 ois.close();
             } catch (IOException e) {
                 e.printStackTrace();
+                GestorLogs.crearLog("Error al cargar el idioma preferido (IO): " + e.getMessage());
             } catch (ClassNotFoundException e) {
                 e.printStackTrace();
+                GestorLogs.crearLog("Error al cargar el idioma preferido (ClassNotFound): " + e.getMessage());
             }
         }
         return idiomaPreferido;

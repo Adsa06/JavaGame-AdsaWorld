@@ -46,6 +46,7 @@ public class GestorPantallas {
             scene.setRoot(root);
         } catch (IOException e) {
             e.printStackTrace();
+            GestorLogs.crearLog("Error al mostrar la pantalla principal: " + e.getMessage());
         }
     }
 
@@ -62,6 +63,7 @@ public class GestorPantallas {
             scene.setRoot(root);
         } catch (IOException e) {
             e.printStackTrace();
+            GestorLogs.crearLog("Error al mostrar la pantalla de configuración: " + e.getMessage());
         }
     }
 
@@ -77,6 +79,7 @@ public class GestorPantallas {
             scene.setRoot(root);
         } catch (IOException e) {
             e.printStackTrace();
+            GestorLogs.crearLog("Error al mostrar la pantalla de inicio de sesión: " + e.getMessage());
         }
     }
 
@@ -92,6 +95,7 @@ public class GestorPantallas {
             scene.setRoot(root);
         } catch (IOException e) {
             e.printStackTrace();
+            GestorLogs.crearLog("Error al mostrar la pantalla de registro: " + e.getMessage());
         }
     }
 

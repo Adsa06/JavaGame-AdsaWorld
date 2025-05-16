@@ -6,6 +6,8 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.Properties;
 
+import dev.adsa.utils.GestorLogs;
+
 /**
  * Clase para la conexion de la base de datos
  * Utilizo una sola clase para las colecciones
@@ -38,9 +40,10 @@ public class ConexionDB {
             password = props.getProperty("db.password");
 
         } catch (RuntimeException e) {
-            System.out.println(e.getMessage());
+            GestorLogs.crearLog("Error al cargar la configuración de la base de datos: " + e.getMessage());
+        
         } catch (Exception e) {
-            System.out.println("Error al cargar el archivo de propiedades: " + e.getMessage());
+            GestorLogs.crearLog("Error al cargar el archivo de propiedades: " + e.getMessage());
         }
 
         return DriverManager.getConnection(url, user, password);
