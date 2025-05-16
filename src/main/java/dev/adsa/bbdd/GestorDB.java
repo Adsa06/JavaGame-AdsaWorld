@@ -7,6 +7,8 @@ import java.sql.SQLException;
 
 import org.mindrot.jbcrypt.BCrypt;
 
+import dev.adsa.utils.GestorLogs;
+
 /**
  * Clase para la gestion de la base de datos
  */
@@ -31,7 +33,7 @@ public class GestorDB {
             existe = true;
 
         } catch (SQLException e) {
-            System.out.println("Error al registrar: " + e.getMessage());
+            GestorLogs.crearLog("Error al registrar: " + e.getMessage());
         }
         return existe;
     }
@@ -61,7 +63,7 @@ public class GestorDB {
             }
 
         } catch (SQLException e) {
-            System.out.println("Error al iniciar sesión: " + e.getMessage());
+            GestorLogs.crearLog("Error al iniciar sesión: " + e.getMessage());
             resultado = "errorNotFound";
         }
         return resultado;
@@ -81,7 +83,7 @@ public class GestorDB {
 
 
         } catch (SQLException e) {
-            System.out.println("Error al comprobar si existe el usuario: " + e.getMessage());
+            GestorLogs.crearLog("Error al comprobar si existe el usuario: " + e.getMessage());
         }
         return existe;
     }

@@ -17,4 +17,8 @@ public class SesionActual {
     public static String getNombreUsuario() {
         return usuario.getNombre();
     }
+
+    public static boolean isLoggedIn() {
+        return usuario != null;
+    }
 }
