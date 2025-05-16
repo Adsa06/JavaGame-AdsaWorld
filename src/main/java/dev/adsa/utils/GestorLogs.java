@@ -22,13 +22,13 @@ public class GestorLogs {
             file.mkdirs();
         }
         String fecha = Utilidades.formatFecha(LocalDateTime.now());
-        File fileLog = new File(file, fecha + ".log");
-
-        try (BufferedWriter fr = new BufferedWriter(new FileWriter(fileLog))) {
+        String fileLog = file + "/" + fecha + ".log";
+        try (BufferedWriter fr = new BufferedWriter(new FileWriter(fileLog, true))) {
             StringBuilder sb = new StringBuilder();
             sb.append("[").append(fecha).append("] ");
             sb.append("[").append(SesionActual.isLoggedIn() ? SesionActual.getNombreUsuario() : "/Desconocido/").append("] ");
             sb.append(mensaje);
+
             fr.write(sb.toString());
             System.out.println("Log creado correctamente");
 

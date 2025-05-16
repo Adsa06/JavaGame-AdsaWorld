@@ -45,6 +45,6 @@ public class Utilidades {
      * @return La fecha formateada como una cadena de texto.
      */
     public static String formatFecha(LocalDateTime fecha) {
-        return fecha.format(DateTimeFormatter.ofPattern("yyyy-MM-dd_HH:mm:ss"));
+        return fecha.format(DateTimeFormatter.ofPattern("yyyy-MM-dd_HH-mm-ss"));
     }
 }
