@@ -54,4 +54,12 @@ public class GestorIdioma {
             default -> setIdioma(Locale.of("es", "ES"));
         }
     }
+
+    /**
+     * Obtiene el idioma actual de la aplicación.
+     * @return El idioma actual.
+     */
+    public static String getIdiomaActual() {
+        return currentLocale.getLanguage();
+    }
 }

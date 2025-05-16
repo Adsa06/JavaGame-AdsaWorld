@@ -102,4 +102,30 @@ public class Usuario implements Serializable {
 
         return usuario;
     }
+
+    /**
+     * Cargar idioma preferido del usuario
+     * 
+     * @param nombreJugador El nombre del usuario
+     * 
+     * @return El idioma preferido del usuario
+     *
+     */
+    public static String cargarIdiomaPreferido(String nombreUsuario) {
+        File file = new File(Utilidades.conseguirPath() + "Profiles/" + nombreUsuario + ".dat");
+        String idiomaPreferido = "es";
+        if (file.exists()) {
+            try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(file))) {
+                Usuario usuario = (Usuario) ois.readObject();
+                idiomaPreferido = usuario.getIdiomaPreferido();
+                System.out.println("Idioma preferido cargado correctamente");
+                ois.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            } catch (ClassNotFoundException e) {
+                e.printStackTrace();
+            }
+        }
+        return idiomaPreferido;
+    }
 }

@@ -1,5 +1,6 @@
 package dev.adsa.controlador;
 
+import dev.adsa.modelo.Usuario;
 import dev.adsa.utils.GestorPantallas;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
@@ -36,6 +37,7 @@ public class MainMenuController {
     @FXML
     private void salir(ActionEvent event) {
         System.out.println("Saliendo de la aplicacion...");
+        //Usuario.guardarUsuario();
         Platform.exit();
         System.exit(0);
     }

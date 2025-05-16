@@ -1,6 +1,8 @@
 package dev.adsa.controlador;
 
 import dev.adsa.bbdd.GestorDB;
+import dev.adsa.modelo.Usuario;
+import dev.adsa.utils.GestorIdioma;
 import dev.adsa.utils.GestorPantallas;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -68,6 +70,7 @@ public class LogInMenuController {
         } else {
             String resultado = GestorDB.login(username, password);
             if (resultado.equals("exitoso")) {
+                GestorIdioma.cambiarIdioma(Usuario.cargarIdiomaPreferido(username));
                 GestorPantallas.mostrarMenuPrincipal();
             } else {
                 mostrarError(resultado);
