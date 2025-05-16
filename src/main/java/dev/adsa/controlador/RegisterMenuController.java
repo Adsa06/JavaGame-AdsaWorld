@@ -74,7 +74,7 @@ public class RegisterMenuController {
      * Mensaje de error inesperado.
      */
     @FXML    
-    private Text UnexpectedError;
+    private Text unexpectedError;
 
     /**
      * Maneja el evento de inicio de sesión.
@@ -101,7 +101,7 @@ public class RegisterMenuController {
             SesionActual.setUsuario(new Usuario(username, "es"));
             GestorPantallas.mostrarMenuPrincipal();
         } else
-            mostrarError("UnexpectedError");
+            mostrarError("unexpectedError");
     }
 
     /**
@@ -148,14 +148,14 @@ public class RegisterMenuController {
         errorNotValidUser.setVisible(false);
         errorUserExists.setVisible(false);
         errorPassword.setVisible(false);
-        UnexpectedError.setVisible(false);
+        unexpectedError.setVisible(false);
 
         switch (mensaje) {
             case "errorNotValidUser" -> errorNotValidUser.setVisible(true);
             case "errorUserExists" -> errorUserExists.setVisible(true);
             case "errorEmpty" -> errorEmpty.setVisible(true);
             case "errorPassword" -> errorPassword.setVisible(true);
-            case "UnexpectedError" -> UnexpectedError.setVisible(true);
+            case "unexpectedError" -> unexpectedError.setVisible(true);
             default -> {}
         }
     }

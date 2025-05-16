@@ -55,6 +55,12 @@ public class LogInMenuController {
     private Text errorEmpty;
 
     /**
+     * Mensaje de error inesperado.
+     */
+    @FXML
+    private Text unexpectedError;
+
+    /**
      * Maneja el evento de inicio de sesión.
      * Obtiene el nombre de usuario y la contraseña de los campos de texto.
      * Después de procesar los datos de inicio de sesión, muestra el menú principal.
@@ -66,7 +72,7 @@ public class LogInMenuController {
         String username = usernameField.getText();
         String password = passwordField.getText();
 
-        if(username.isEmpty() || password.isEmpty()) {
+        if (username.isEmpty() || password.isEmpty()) {
             mostrarError("errorEmpty");
         } else {
             String resultado = GestorDB.login(username, password);
@@ -111,18 +117,22 @@ public class LogInMenuController {
     /**
      * Muestra el mensaje de error correspondiente segun el parametro "mensaje".
      * 
-     * @param mensaje El mensaje de error a mostrar. Puede ser "errorCredential", "errorNotFound" o "errorEmpty".
+     * @param mensaje El mensaje de error a mostrar. Puede ser "errorCredential",
+     *                "errorNotFound" o "errorEmpty".
      */
     private void mostrarError(String mensaje) {
         errorCredential.setVisible(false);
         errorNotFound.setVisible(false);
         errorEmpty.setVisible(false);
+        unexpectedError.setVisible(false);
 
         switch (mensaje) {
             case "errorCredential" -> errorCredential.setVisible(true);
             case "errorNotFound" -> errorNotFound.setVisible(true);
             case "errorEmpty" -> errorEmpty.setVisible(true);
-            default -> {}
+            case "unexpectedError" -> unexpectedError.setVisible(true);
+            default -> {
+            }
         }
     }
 }

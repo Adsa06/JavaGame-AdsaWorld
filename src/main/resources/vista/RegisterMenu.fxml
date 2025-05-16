@@ -32,7 +32,7 @@
             <Text fx:id="errorEmpty" fill="#c63b3b" strokeType="OUTSIDE" strokeWidth="0.0" text="%text.register.errorEmpty" visible="false" />
             <Text fx:id="errorPassword" fill="#c63b3b" strokeType="OUTSIDE" strokeWidth="0.0" text="%text.register.errorPassword" visible="false" />
             <Text fx:id="errorUserExists" fill="#c63b3b" strokeType="OUTSIDE" strokeWidth="0.0" text="%text.register.errorUserExists" visible="false" />
-            <Text fx:id="UnexpectedError" fill="#c63b3b" strokeType="OUTSIDE" strokeWidth="0.0" text="%text.register.UnexpectedError" visible="false" />
+            <Text fx:id="unexpectedError" fill="#c63b3b" strokeType="OUTSIDE" strokeWidth="0.0" text="%text.register.unexpectedError" visible="false" />
          </children>
       </StackPane>
       <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#registrarse" prefHeight="50.0" prefWidth="200.0" styleClass="botonDefault" text="%button.register.register" translateY="25.0" />

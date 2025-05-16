@@ -30,6 +30,7 @@
             <Text fx:id="errorCredential" fill="#c63b3b" strokeType="OUTSIDE" strokeWidth="0.0" text="%text.login.errorCredential" visible="false" />
             <Text fx:id="errorNotFound" fill="#c63b3b" strokeType="OUTSIDE" strokeWidth="0.0" text="%text.login.errorNotFound" visible="false" />
             <Text fx:id="errorEmpty" fill="#c63b3b" strokeType="OUTSIDE" strokeWidth="0.0" text="%text.login.errorEmpty" visible="false" />
+            <Text fx:id="unexpectedError" fill="#c63b3b" strokeType="OUTSIDE" strokeWidth="0.0" text="%text.login.unexpectedError" visible="false" />
          </children>
          <VBox.margin>
             <Insets top="5.0" />

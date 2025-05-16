@@ -64,7 +64,7 @@ public class GestorDB {
 
         } catch (SQLException e) {
             GestorLogs.crearLog("Error al iniciar sesión: " + e.getMessage());
-            resultado = "errorNotFound";
+            resultado = "unexpectedError";
         }
         return resultado;
     }
